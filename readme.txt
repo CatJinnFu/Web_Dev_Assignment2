@@ -1,3 +1,48 @@
+******Dieter's Web Development Assignment 2******
+
+To view working version :
+
+http://www.deakin.edu.au/~schmidd/SIT203/Assignment2/
+
+This is a template we where given to develop into a functional e-commerce site. 
+This Assignment extens functionality using PHP. It's still a beta version and much can be done to
+improve the site. However the core functionality is there.
+
+This now features :
+
+1). A working shopping cart, that processes an order.
+2). Search functionality. 
+3). User registeration.
+
+The backend database is oracle - the DB schema is here :
+
+DBdesign.sql
+
+
+I have coded the following php files :
+
+basket.php
+checkout1.php
+checkout2.php
+checkout3.php
+customer-account.php
+customer-order.php
+customer-orders.php
+index.php
+logout.php
+order.php
+order-placed.php
+register.php
+
+
+All my Javascript to enable search, navigation functions is in :
+
+js/checkout.js ## --> This is a a set of validation Javascript's in Jquery for the order and registration form.
+js/search.js   ## --> This is a a set of validation Javascript's in Jquery for the search, navigation field.
+
+
+************************************************************
+
 Hello,
 
 thank you for downloading Obaju, responsive bootstrap e-commerce template.
