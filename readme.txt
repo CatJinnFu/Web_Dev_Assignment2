@@ -34,7 +34,7 @@ order.php
 order-placed.php
 register.php
 
-These php files house all the functions used in the website and perform backend business logic.
+I have coded all these php files to house all the functions used in the website and perform backend business logic.
 
 cart.php
 checkout.php
