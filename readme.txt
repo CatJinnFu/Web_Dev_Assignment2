@@ -5,7 +5,7 @@ To view working version :
 http://www.deakin.edu.au/~schmidd/SIT203/Assignment2/
 
 This is a template we where given to develop into a functional e-commerce site. 
-This Assignment extens functionality using PHP. It's still a beta version and much can be done to
+This Assignment extends functionality using PHP. It's still a beta version and much can be done to
 improve the site. However the core functionality is there.
 
 This now features :
@@ -14,7 +14,7 @@ This now features :
 2). Search functionality. 
 3). User registeration.
 
-The backend database is oracle - the DB schema is here :
+The backend database is oracle - the DB schema I designed is here :
 
 DBdesign.sql
 
