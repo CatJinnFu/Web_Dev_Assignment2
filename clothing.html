@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<script>
+//The loadXMLDoc() function is used to load the XML and XSL files. 
+//It checks what kind of browser the user has and loads the file.
+function loadXMLDoc(dname)
+{ 
+xhttp=new XMLHttpRequest();
+xhttp.open("GET",dname,false);
+xhttp.send("");
+return xhttp.responseXML;
+}
+
+/*This function is used to display the XML file styled by the XSL file.
+
+Load XML and XSL file
+Test what kind of browser the user has
+If the user has a browser supporting the ActiveX object:
+Use the transformNode() method to apply the XSL style sheet to the xml document
+Set the body of the current document (id="example") to contain the styled xml document
+If the user has a browser that does not support the ActiveX object:
+Create a new XSLTProcessor object and import the XSL file to it
+Use the transformToFragment() method to apply the XSL style sheet to the xml document
+Set the body of the current document (id="example") to contain the styled xml document
+*/
+function displayResult()
+{
+xml=loadXMLDoc("clothes.xml");
+xsl=loadXMLDoc("clothes.xsl");
+// code for IE
+if (window.ActiveXObject)
+  {
+  ex=xml.transformNode(xsl);
+  document.getElementById("example").innerHTML=ex;
+  }
+// code for Mozilla, Firefox, Opera, etc.
+else if (document.implementation && document.implementation.createDocument)
+  {
+  xsltProcessor=new XSLTProcessor();
+  xsltProcessor.importStylesheet(xsl);
+  resultDocument = xsltProcessor.transformToFragment(xml,document);
+  document.getElementById("example").appendChild(resultDocument);
+  }
+}
+</script>
+</head>
+<body onload="displayResult()">
+<div id="example" />
+</body>
+</html>

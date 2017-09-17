@@ -1,0 +1,182 @@
+$(document).ready(function(){
+        
+        $("#firstname").blur(function(){
+        		$.post("php/checkout.php",{firstname:$("#firstname").val()}, function(data, status){
+         						if($("#firstname").val() === ""){
+         							
+         						}
+         						
+         		});
+        });
+
+        $("#lastname").blur(function(){
+        		$.post("php/checkout.php",{lastname:$("#lastname").val()}, function(data, status){
+        				if($("#lastname").val() == ""){
+         						
+         				}
+            
+         		});
+        });
+
+        $("#address").blur(function(){
+        		$.post("php/checkout.php",{faddress:$("#address").val()}, function(data, status){
+            				if($("#address").val() == ""){
+         							
+         						}
+         		});
+        });
+
+        $("#company").blur(function(){
+        		$.post("php/checkout.php",{company:$("#company").val()}, function(data, status){
+          
+         		});
+        });
+
+        $("#city").blur(function(){
+        		$.post("php/checkout.php",{city:$("#city").val()}, function(data, status){
+            				if($("#city").val() == ""){
+         							
+         						}
+         		});
+        });
+
+        $("#postcode").blur(function(){
+        		$.post("php/validatePostCode.php",{postcode:$("#postcode").val()}, function(data, status){
+           				  if(data.trim() == 'error'){		
+         					//alert("Invalid Postcode");
+         					$("#postcode").val("invalid").css("color","red");
+         					
+       					  } else {
+       					  	$("#postcode").val(parseInt($("#postcode").val())).css("color","black");
+       					  }	  	
+       					  			
+         		});	
+        });
+
+        $("#state").blur(function(){
+        		$.post("php/checkout.php",{state:$("#state").val()}, function(data, status){
+           						if($("#state").val() == ""){
+         							$("#state").val("Required field");
+         						} else if ($("#country").val() == "AU") {
+  									if(!$("#state").val()){	
+         							$("#state").html(
+         											 "<option value='VIC'>VIC</option>" +
+         											 "<option value='NSW'>NSW</option>" +
+         											 "<option value='WA'>WA</option>" +
+         											 "<option value='TAS'>TAS</option>" +
+         											 "<option value='NT'>NT</option>" +
+         											 "<option value='SA'>SA</option>")	
+         							}
+         						} else {
+         									$("#state").html("");	
+         						}
+         		});
+        });
+
+         $("#state").click(function(){
+        		$.post("php/checkout.php",{state:$("#state").val()}, function(data, status){
+           						if($("#state").val() == ""){
+         							$("#state").val("Required field");
+         						} else if ($("#country").val() == "AU") {
+         						    if(!$("#state").val()){	
+         							$("#state").html(
+         											 "<option value='VIC'>VIC</option>" +
+         											 "<option value='NSW'>NSW</option>" +
+         											 "<option value='WA'>WA</option>" +
+         											 "<option value='TAS'>TAS</option>" +
+         											 "<option value='NT'>NT</option>" +
+         											 "<option value='SA'>SA</option>")	
+         							}
+         						}else {
+         									$("#state").html("");	
+         						}
+         		});
+        });
+
+        $("#country").blur(function(){
+        		$.post("php/checkout.php",{country:$("#country").val()}, function(data, status){
+            							if($("#country").val() == ""){
+         							$("#country").val("Required field");
+         						}
+         		});
+        });
+
+        $("#phone").blur(function(){
+        		$.post("php/validatePhone.php",{phone:$("#phone").val()}, function(data, status){
+            			  if(data.trim() == 'error'){		
+         					
+         					$("#phone").val($("#phone").val() + " this is invalid.").css("color","red");
+         					
+         					
+       					  } else {
+       					  	$("#phone").val($("#phone").val()).css("color","black");;
+       					  	
+       					  }	
+         		});
+        });
+
+        $("#email").blur(function(){
+        		$.post("php/validateEmail.php",{email:$("#email").val()}, function(data, status){
+         				  if(data.trim() == 'error'){		
+         					
+         					$("#email").val($("#email").val() + " this is invalid.").css("color","red");
+         					
+         					
+       					  } else {
+       					  	$("#email").val($("#email").val()).css("color","black");;
+       					  	
+       					  }	
+         		});
+        });
+
+
+        // Its seems this dosnt work the event sometime doesnt fire.	
+        $("#aButton").click(function(){
+
+        		text = "";
+        		
+
+        		$.post("php/validatePostCode.php",{postcode:$("#postcode").val()}, function(data, status){
+        						if(data == 'error') { 
+        							error = true;			
+        							text += "Invalid post code\n";
+        						}
+
+        						
+        		});	
+
+        		$.post("php/validateEmail.php",{email:$("#email").val()}, function(data, status){
+        						if(data == 'error') { error = true;	text += "Invalid email\n";}
+        		});			
+
+        		$.post("php/validatePhone.php",{phone:$("#phone").val()}, function(data, status){
+        						if(data == 'error') {error = true;	text += "Invalid phone\n";}
+        		});
+
+        		$.post("php/checkout.php", function(data, status){
+        				if($("#firstname").val() == "" ){error = true;	 text += "Requires a First name\n ";}
+        				if($("#lastname").val() == "" ){error = true;	 text += "Requires a Last name\n ";}
+        				if($("#address").val() == "" ){error = true;	 text += "Requires an Address\n ";}
+        				if($("#city").val() == "" ){ error = true;	text += "Requires a City\n ";}
+        				if($("#state").val() == "" ){ error = true;	text += "Requires a State\n ";}	
+        				if($("#country").val() == "" ){ error = true;	text += "Requires a Country\n ";}	
+         		
+         				if(error) {
+         						console.log("testing -- ");	
+        						$("#errors").html(text);
+        				} else {
+         				  //window.location.href = "http://www.deakin.edu.au/~schmidd/SIT203/Assignment2/checkout2.html";
+         				  console.log("testing --* ");	
+         				}  
+
+         				//$("#errors").html( text );
+        				
+        			
+         		});
+        				
+        	
+
+         				
+        				
+        });
+});
