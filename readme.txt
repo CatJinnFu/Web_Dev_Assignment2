@@ -19,7 +19,7 @@ The backend database is oracle - the DB schema is here :
 DBdesign.sql
 
 
-I have coded the following php files :
+I have coded the php in the following files :
 
 basket.php
 checkout1.php
@@ -33,6 +33,17 @@ logout.php
 order.php
 order-placed.php
 register.php
+
+These php files house all the functions used in the website and perform backend business logic.
+
+cart.php
+checkout.php
+functions.php
+functions-account.php
+functions-login.php
+global-connect.php
+order.php
+search.php
 
 
 All my Javascript to enable search, navigation functions is in :
