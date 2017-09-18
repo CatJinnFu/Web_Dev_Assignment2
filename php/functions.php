@@ -18,6 +18,10 @@ switch ($action)  {
       break;
 }  
 
+/*
+* Write an order to the database based on a User_ID
+*/
+
 function writeOrder(){
 	//setup SQL statement. 
 	global $db;
@@ -167,6 +171,11 @@ function writeOrder(){
 
 }
 
+
+/*
+* Check if a user exists already in the database
+*/
+
 function userExists($firstname,$lastname,$email,$db){
 
     $query = "SELECT User_ID FROM Users WHERE firstname = '$firstname' AND lastname = '$lastname' AND  email ='$email'" ;
@@ -191,6 +200,11 @@ function userExists($firstname,$lastname,$email,$db){
 
 
 }
+
+
+/*
+* get the ID of the order and return it when this function is called.
+*/
 
 function returnOrder_ID($User_ID,$Status,$Order_Date,$total,$db ){
 
@@ -217,12 +231,19 @@ function returnOrder_ID($User_ID,$Status,$Order_Date,$total,$db ){
 
 }
 
+/*
+* check if an order has been made.
+* Looks like is check the Users table for some reason ?
+* Function is not used and wont work properly it shoudl return an order_ID
+*/
+
 
 function orderExists($firstname,$lastname,$email,$db){
 
+
     $query = "SELECT User_ID FROM Users WHERE firstname = '$firstname' AND lastname = '$lastname' AND  email ='$email'" ;
       
-    
+
     $stmt = oci_parse($connection, $query); 
             
     if(!$stmt) {
@@ -237,10 +258,22 @@ function orderExists($firstname,$lastname,$email,$db){
     $result =  oci_result($stmt,"User_ID");
    }
    
+
+    //should include :
+	//$query = "SELECT Order_ID FROM Orders WHERE firstname = '$firstname' AND lastname = '$lastname' AND  email ='$email'" ;
+    //return the Order_ID 
+
    return $result;
 
 
 }
+
+
+
+/*
+* Function is a double up not sure why its here ?
+*
+*/
 
 function writeShoppingCart() {
 	
@@ -256,6 +289,11 @@ function writeShoppingCart() {
 	}
 }
 
+/*
+* Print the number of items in a shopping cart.
+*
+*/
+
 function itemsCart() {
 	
 
@@ -269,6 +307,11 @@ function itemsCart() {
 		return  count($items).' item'.$s.' in cart';
 	}
 }
+
+/*
+* Display the cart items
+*
+*/
 
 function showCart() {
 

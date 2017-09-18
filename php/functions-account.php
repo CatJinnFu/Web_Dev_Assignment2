@@ -1,8 +1,23 @@
 <?php
+
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : Functions relating to changing account details.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
 session_start();
 
 require_once('php/functions.php');
 require_once('php/functions-login.php');
+
+
+/*
+* Change the password on the account.
+*/
 
 function changePassword($new){
   global $db;
@@ -48,7 +63,9 @@ function changePassword($new){
 }
 
 
-
+/*
+* Load the account details from the database into the SESSION variable.
+*/
 
 
 function setUpAccount(){
@@ -92,6 +109,10 @@ function setUpAccount(){
 
 
 }
+
+/*
+* Write new details for teh users Account to the database.
+*/
 
 function updateAccount(){
         global $db;

@@ -1,5 +1,13 @@
 <?php
-
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : Uses DB to generate an xml file to render as a search result in XML/XSL.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
 //build database from xml
 /* Set oracle user login and password info */
 $dbuser = "schmidd"; /* your deakin login */

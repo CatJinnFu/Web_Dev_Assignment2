@@ -13,6 +13,12 @@ session_start();
 
 require_once('php/functions.php');
 
+
+/*
+* Creates a new user in the database with firstand lastname as well as email.
+*/
+
+
 function registerUser(){
 	global $db;
 	
@@ -69,6 +75,11 @@ function registerUser(){
 	}
 }
 
+/*
+* Logs user into the database as long as they have the correct email.
+*/
+
+
 function loginUser(){
     global $db;
 	$email = $_SESSION['email'];
@@ -102,6 +113,9 @@ function loginUser(){
 
 }
 
+/*
+* Show orders made by a customer.
+*/
 
 
 function showOrders() {
@@ -156,7 +170,9 @@ function showOrders() {
         return join('',$output);
 }
 
-
+/*
+* Show products in an order made by a customer.
+*/
 function showProductsOrdered() {
 
     global $db;
@@ -272,6 +288,10 @@ function showProductsOrdered() {
 }
 
 
+/*
+* Display address for HTML page.
+*/
+
 function showAddress(){
 
     global $db;
@@ -313,6 +333,10 @@ function showAddress(){
       return join('',$output);
 }
 
+
+/*
+* Display order date for HTML page.
+*/
 
 function orderDate(){
 

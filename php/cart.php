@@ -1,4 +1,16 @@
 <?php
+
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : Some code for the cart, NOT USED.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
+
 // Include database connection
 require_once('inc/global-connect.inc.php');
 // Include functions

@@ -81,8 +81,9 @@ switch ($fieldname)
 }
 
 
-
-
+/*
+* Checks for all email permutations.
+*/
 
 function validateEmail($email){
 	if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -102,20 +103,38 @@ function validateEmail($email){
    //if its not then its an error */     
 }
 
+
+
+/*
+* Checks for phone numbers. In the following formats :
+*  (03) 9999 4501
+*  03 9999 4501
+*  (0428) 081 171
+*  0428 081 171
+*/
+
 function validatePhone($phone){
    //see if its a valid number
    //test normal numbar
    $pattern1 = "/^\([0-9]{2}\)\s*[0-9]{4}\s*[0-9]{4}$/";
    $pattern2 = "/^[0-9]{2}[0-9]{4}[0-9]{4}$/";
+   $pattern3 = "/^[0-9]{4}[0-9]{3}[0-9]{3}$/";
+   $pattern4 = "/^\([0-9]{4}\)\s*[0-9]{3}\s*[0-9]{3}$/";
   
    if (preg_match($pattern1,$phone)) {  return $phone;}
    else if (preg_match($pattern2,$phone)) { return $phone;}
+   else if (preg_match($pattern3,$phone)) { return $phone;}
+   else if (preg_match($pattern4,$phone)) { return $phone;}
    else {
       echo "error"; 
    }
    //test mobile number 
    //if its not then its an error      
 }
+
+/*
+*  Makes sure post code is a number
+*/
 
 function validatePostCode($post){
   
@@ -131,6 +150,10 @@ function validatePostCode($post){
 
 }
 
+/*
+*  Very basic validation of th3 card number 16 digits, not getting complex here.
+*/
+
 function validateCardNumber($post){
   
    if(intval($post) != 0  &&  strlen("" . $post) == 16){
@@ -144,6 +167,10 @@ function validateCardNumber($post){
    }
 
 }
+
+/*
+*  Very basic validation of the care date year, not getting complex here.
+*/
 
 function validateCardYear($post, $month){
   
@@ -160,6 +187,10 @@ function validateCardYear($post, $month){
 		}
 
 }
+
+/*
+*  Very basic validation of the care date month, not getting complex here.
+*/
 
 function validateExpiryMonth($post, $year){
 
@@ -185,6 +216,10 @@ function validateExpiryMonth($post, $year){
 
 }
 
+/*
+*  Very basic validation of the care date cvv, not getting complex here.
+*/
+
 function validateCvv($post){
   	if(intval($post) != 0  &&  strlen("" . $post) == 3){
    //see if its a number
@@ -198,6 +233,11 @@ function validateCvv($post){
 
 
 }
+
+/*
+*  Setups the pricing for the shipping when the order is placed.
+*  suspected buggy. Needs review.
+*/
 
 
 function setShipping($post){
