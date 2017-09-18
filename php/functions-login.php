@@ -1,4 +1,13 @@
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : Functions that are related to logging in and starting a session.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
 
 session_start();
 

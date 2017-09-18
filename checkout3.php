@@ -1,4 +1,15 @@
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : form for collecting credit card details, not this does nothing because website doesnt take payments.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
+
 session_start();
 require_once('php/search.php');
 require_once('php/global-connect.php');

@@ -1,3 +1,15 @@
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : validation functions for user order form.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
+
+
 $(document).ready(function(){
 
     

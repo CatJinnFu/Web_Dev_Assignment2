@@ -1,4 +1,14 @@
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : Functions relating to the shopping and ordering of items from the website.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
 session_start();
 
 

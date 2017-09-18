@@ -1,4 +1,18 @@
+
+
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : backend business logic for process the users form details.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
+
+
 session_start();
 $firstname = $_SESSION['firstname'];
 $lastname = $_SESSION['lastname'];

@@ -1,3 +1,12 @@
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : Javascript processing of the search field data entered.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
 $(document).ready(function(){
 
 	 $("#search_content").keydown(function(){

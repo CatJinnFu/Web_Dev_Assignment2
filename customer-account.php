@@ -1,4 +1,14 @@
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : Form for the setup and changes to the details of a customer account.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
 session_start();
 require_once('php/search.php');
 require_once('php/global-connect.php');

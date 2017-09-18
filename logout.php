@@ -1,4 +1,15 @@
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : This is to end the session.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
+
 session_start();
     $_SESSION = array();
     session_destroy();

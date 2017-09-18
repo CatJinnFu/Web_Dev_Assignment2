@@ -1,4 +1,15 @@
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : displays cart items and provides option to place order.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
+
 session_start();
 require_once('php/search.php');
 require_once('php/global-connect.php');

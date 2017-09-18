@@ -1,4 +1,15 @@
 <?php
+// ===============================
+// AUTHOR     : Dieter Schmid   
+// CREATE DATE     : 18/09/2017 (added header)
+// PURPOSE     : create shopping cart display select shopping items.
+// SPECIAL NOTES:
+// ===============================
+// Change History:
+//
+//==================================
+
+
 session_start();
 require_once('php/search.php');
 require_once('php/global-connect.php');
