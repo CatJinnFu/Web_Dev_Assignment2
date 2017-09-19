@@ -1,7 +1,5 @@
-
-
 <?php
-
+session_start();
 // ===============================
 // AUTHOR     : Dieter Schmid   
 // CREATE DATE     : 18/09/2017 (added header)
@@ -12,7 +10,7 @@
 //
 //==================================
 
-session_start();
+
 require_once('php/search.php');
 require_once('php/global-connect.php');
 require_once('php/functions.php');
@@ -54,6 +52,8 @@ switch ($action) {
         break;
     case 'login':
         $loggedIn = loginUser();
+
+        echo "--logged--" . $loggedIn ;
         
         if($loggedIn) { ?>
 
@@ -122,13 +122,16 @@ switch ($action) {
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
             <div class="col-md-6" data-animate="fadeInDown">
+
                 <ul class="menu">
-                    <li><a href="register.php" data-toggle="modal" data-target="#login-modal">Login</a>
+                    
+                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
                     </li>
-                    <li><a href="register.php">Register</a>
+                    <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
-                    <li><a href="contact.html">Contact</a>
+                    <li><a href="contact.php">Contact</a>
                     </li>
+                    <li style="color:white;">  <?php echo getName(); ?> </li>
                     
                 </ul>
             </div>
@@ -157,7 +160,7 @@ switch ($action) {
                         </form>
 
                         <p class="text-center text-muted">Not registered yet?</p>
-                        <p class="text-center text-muted"><a href="register.html"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+                        <p class="text-center text-muted"><a href="register.php"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
 
                     </div>
                 </div>
@@ -188,7 +191,7 @@ switch ($action) {
                         <span class="sr-only">Toggle search</span>
                         <i class="fa fa-search"></i>
                     </button>
-                    <a class="btn btn-default navbar-toggle" href="basket.html">
+                    <a class="btn btn-default navbar-toggle" href="basket.php">
                         <i class="fa fa-shopping-cart"></i>  <span class="hidden-xs"></span>
                     </a>
 
@@ -200,7 +203,7 @@ switch ($action) {
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="index.html">Home</a>
+                    <li class="active"><a href="index.php">Home</a>
                     </li>
 														
 					<li class="dropdown yamm-fw">
@@ -212,14 +215,14 @@ switch ($action) {
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-man.html">T-shirts</a>
+                                                <li><a href="category-man.php">T-shirts</a>
                                                 </li>
-                                                <li><a href="category-man.html">Shirts</a>
+                                                <li><a href="category-man.php">Shirts</a>
                                                 </li>												
-                                                <li><a href="category-man.html">Pants</a>
+                                                <li><a href="category-man.php">Pants</a>
                                                 </li>												
                                                 <!--
-												<li><a href="category-man.html">Accessories</a>
+												<li><a href="category-man.php">Accessories</a>
                                                 </li>
 												-->
                                             </ul>
@@ -227,31 +230,31 @@ switch ($action) {
                                         <!--<div class="col-sm-3">
                                             <h5>Shoes</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
                                             </ul>
                                         </div> commented by Shang 03/07/2017-->
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-man.html">Bags</a>
+                                                <li><a href="category-man.php">Bags</a>
                                                 </li>
-                                                <li><a href="category-man.html">Belts</a>
+                                                <li><a href="category-man.php">Belts</a>
                                                 </li>
 												<!--
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
 												-->
                                             </ul>
@@ -259,20 +262,20 @@ switch ($action) {
                                         <!--<div class="col-sm-3">
                                             <h5>Featured</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul>
                                             <h5>Looks and trends</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul>
                                         </div> commented by shang 03/07/2017-->
@@ -292,14 +295,14 @@ switch ($action) {
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-lady.html">T-shirts</a>
+                                                <li><a href="category-lady.php">T-shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Shirts</a>
+                                                <li><a href="category-lady.php">Shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Pants</a>
+                                                <li><a href="category-lady.php">Pants</a>
                                                 </li>
 												<!--
-                                                <li><a href="category-lady.html">Accessories</a>
+                                                <li><a href="category-lady.php">Accessories</a>
                                                 </li>
 												-->
                                             </ul>
@@ -307,41 +310,41 @@ switch ($action) {
                                         <!-- <div class="col-sm-3">
                                             <h5>Shoes</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
                                             </ul>
                                         </div>  commented by Shang 03/07/2017-->
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-lady.html">Bags</a>
+                                                <li><a href="category-lady.php">Bags</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Belts</a>
+                                                <li><a href="category-lady.php">Belts</a>
                                                 </li>
 												<!--
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
 												-->
                                             </ul>
                                             <!--<h5>Looks and trends</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul> commented by Shang 03/07/2017-->
                                         </div>
@@ -373,18 +376,18 @@ switch ($action) {
                                         <div class="col-sm-3">
                                             <h5>Shop</h5>
                                             <ul>
-                                                <li><a href="index.html">Homepage</a>
+                                                <li><a href="index.php">Homepage</a>
                                                 </li>
-                                                <li><a href="category-man.html">Category - men</a>
+                                                <li><a href="category-man.php">Category - men</a>
                                                 </li>
-												<li><a href="category-lady.html">Category - ladies</a>
+												<li><a href="category-lady.php">Category - ladies</a>
                                                 </li>                                                 
                                                 <!--
-												<li><a href="category.html">Category - sidebar left</a>
+												<li><a href="category.php">Category - sidebar left</a>
                                                 </li>
-												<li><a href="category-full.html">Category - full width</a>
+												<li><a href="category-full.php">Category - full width</a>
                                                 </li> 
-                                                <li><a href="detail.html">Product detail</a>
+                                                <li><a href="detail.php">Product detail</a>
                                                 </li> 
 												-->
                                             </ul>
@@ -392,7 +395,7 @@ switch ($action) {
                                         <div class="col-sm-3">
                                             <h5>User</h5>
                                             <ul>
-                                                <li><a href="register.html">Register / login</a>
+                                                <li><a href="register.php">Register / login</a>
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
@@ -401,13 +404,13 @@ switch ($action) {
                                                 <li><a href="basket.php">Shopping cart</a>
                                                 </li>
 												<!--
-                                                <li><a href="checkout1.html">Checkout - step 1</a>
+                                                <li><a href="checkout1.php">Checkout - step 1</a>
                                                 </li>
-                                                <li><a href="checkout2.html">Checkout - step 2</a>
+                                                <li><a href="checkout2.php">Checkout - step 2</a>
                                                 </li>
-                                                <li><a href="checkout3.html">Checkout - step 3</a>
+                                                <li><a href="checkout3.php">Checkout - step 3</a>
                                                 </li>
-                                                <li><a href="checkout4.html">Checkout - step 4</a>
+                                                <li><a href="checkout4.php">Checkout - step 4</a>
                                                 </li>
 												commented by Shang 03/07/2017-->
                                             </ul>
@@ -415,13 +418,13 @@ switch ($action) {
                                         <div class="col-sm-3">
                                             <h5>Information</h5>
                                             <ul>                                                
-                                                <li><a href="aboutus.html">About us</a>
+                                                <li><a href="aboutus.php">About us</a>
                                                 </li>
-												<li><a href="terms.html">Terms and conditions</a>
+												<li><a href="terms.php">Terms and conditions</a>
                                                 </li>
-												<li><a href="faq.html">FAQ</a>
+												<li><a href="faq.php">FAQ</a>
                                                 </li>                                                                                                
-                                                <li><a href="contact.html">Contact</a>
+                                                <li><a href="contact.php">Contact</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -439,7 +442,7 @@ switch ($action) {
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.php" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"></span></a>
+                    <a href="basket.php" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo itemsCart(); ?></span></a>
                 </div>
                 <!--/.nav-collapse -->
 
@@ -483,7 +486,7 @@ switch ($action) {
                 <div class="col-md-12">
 
                     <ul class="breadcrumb">
-                        <li><a href="index.html">Home</a>
+                        <li><a href="index.php">Home</a>
                         </li>
                         <li>New account / Sign in</li>
                     </ul>
@@ -496,7 +499,7 @@ switch ($action) {
 
                         <p class="lead">Not our registered customer yet?</p>
                         <p>With registration with us new world of fashion, fantastic discounts and much more opens to you! The whole process will not take you more than a minute!</p>
-                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.html">contact us</a>, our customer service center is working for you 24/7.</p>
+                        <p class="text-muted">If you have any questions, please feel free to <a href="contact.php">contact us</a>, our customer service center is working for you 24/7.</p>
 
                         <hr>
 
@@ -567,13 +570,13 @@ switch ($action) {
                         <h4>Information</h4>
 
                         <ul>
-                            <li><a href="aboutus.html">About us</a>
+                            <li><a href="aboutus.php">About us</a>
                             </li>
-                            <li><a href="terms.html">Terms and conditions</a>
+                            <li><a href="terms.php">Terms and conditions</a>
                             </li>
-                            <li><a href="faq.html">FAQ</a>
+                            <li><a href="faq.php">FAQ</a>
                             </li>
-                            <li><a href="contact.html">Contact us</a>
+                            <li><a href="contact.php">Contact us</a>
                             </li>
                         </ul>
 
@@ -584,7 +587,7 @@ switch ($action) {
                         <ul>
                             <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
                             </li>
-                            <li><a href="register.html">Regiter</a>
+                            <li><a href="register.php">Regiter</a>
                             </li>
                         </ul>
 
@@ -600,25 +603,25 @@ switch ($action) {
                         <h5>Men</h5>
 
                         <ul>
-                            <li><a href="category-man.html">T-shirts</a>
+                            <li><a href="category-man.php">T-shirts</a>
                             </li>
-                            <li><a href="category-man.html">Shirts</a>
+                            <li><a href="category-man.php">Shirts</a>
                             </li>
-							<li><a href="category-man.html">Pants</a>
+							<li><a href="category-man.php">Pants</a>
                             </li>
-                            <li><a href="category-man.html">Accessories</a>
+                            <li><a href="category-man.php">Accessories</a>
                             </li>
                         </ul>
 
                         <h5>Ladies</h5>
                         <ul>
-                            <li><a href="category-lady.html">T-shirts</a>
+                            <li><a href="category-lady.php">T-shirts</a>
                             </li>
-                            <li><a href="category-lady.html">Skirts</a>
+                            <li><a href="category-lady.php">Skirts</a>
                             </li>
-                            <li><a href="category-lady.html">Pants</a>
+                            <li><a href="category-lady.php">Pants</a>
                             </li>
-                            <li><a href="category-lady.html">Accessories</a>
+                            <li><a href="category-lady.php">Accessories</a>
                             </li>
                         </ul>
 
@@ -639,7 +642,7 @@ switch ($action) {
                             <strong>Australia</strong>
                         </p>
 
-                        <a href="contact.html">Go to contact page</a>
+                        <a href="contact.php">Go to contact page</a>
 
                         <hr class="hidden-md hidden-lg">
 

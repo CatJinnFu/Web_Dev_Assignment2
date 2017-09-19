@@ -9,10 +9,10 @@
 //
 //==================================
 
-session_start();
+
 
 require_once('php/functions.php');
-
+session_start();
 
 /*
 * Creates a new user in the database with firstand lastname as well as email.
@@ -87,9 +87,9 @@ function loginUser(){
 
     if($email && $password){
 
-	   $query = "SELECT User_ID FROM Users WHERE password = '$password' AND  email ='$email' " ;
+	   $query = "SELECT User_ID,firstname,lastname FROM Users WHERE password = '$password' AND  email ='$email' " ;
       
-       
+       echo "--q--" . $query;
         
        $stmt = oci_parse($db, $query); 
             
@@ -102,11 +102,16 @@ function loginUser(){
 
    	    while(oci_fetch_array($stmt)){
 
-    	   $result =  oci_result($stmt,"USER_ID");
+    	   $user_id =  oci_result($stmt,"USER_ID");
+           $firstname =  oci_result($stmt,"FIRSTNAME");
+           $lastname =  oci_result($stmt,"LASTNAME");
+
    	    }
     
-        $_SESSION['USER_ID'] = $result;
-   	    return $result;
+        $_SESSION['USER_ID'] = $user_id;
+        $_SESSION['firstname'] = $firstname;
+        $_SESSION['lastname'] = $lastname;
+   	    return $user_id;
 
     }
 
@@ -234,7 +239,7 @@ function showProductsOrdered() {
 
                     $output[] = '<tr>';
                     $output[] = "<td><img src='img/product_img/".$photo.".jpg' ></a></td>";
-                    $output[] = "<td><a href='detail.html#".(int)$id."?".$type."=".$gender."'>".$product."</a></td>";
+                    $output[] = "<td><a href='detail.php#".(int)$id."?".$type."=".$gender."'>".$product."</a></td>";
 
 
                     $sql = "SELECT qty FROM Products_Ordered WHERE Product_ID ='$product_id' AND Order_ID = '$Order_ID'";
@@ -369,5 +374,10 @@ function orderDate(){
     }    
 
     return "#" . $_SESSION['Order_ID'] . " was placed on <strong> " . $date . " </strong> and is currently <strong> ".$status.".</strong>";
+}
+
+function getName(){
+
+    return  $_SESSION['firstname'] . " " . $_SESSION['lastname'];
 }
 ?>

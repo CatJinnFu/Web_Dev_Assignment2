@@ -2,22 +2,21 @@
 // ===============================
 // AUTHOR     : Dieter Schmid   
 // CREATE DATE     : 18/09/2017 (added header)
-// PURPOSE     : form for collecting credit card details, not this does nothing because website doesnt take payments.
+// PURPOSE     : front page to web to website.
 // SPECIAL NOTES:
 // ===============================
 // Change History:
 //
 //==================================
-
-
 session_start();
 require_once('php/search.php');
 require_once('php/global-connect.php');
 require_once('php/functions.php');
 require_once('php/functions-login.php');
 require_once('php/checkout.php');
-$_SESSION['total'] = $total;
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,13 +55,16 @@ $_SESSION['total'] = $total;
 
     <link rel="shortcut icon" href="favicon.png">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>     
+    <script src="js/search.js"> </script> 
+   
     <script src="js/checkout.js"> </script> 
-    <script src="js/checkout.js"> </script> 
-
 
 </head>
-
-<body>
+<!-- There are no major changes to the html templates, looking back on teh assignment it could have been done with 1 single xsl file
+     However i found it very hard to track errors in the xsl. So building it this way was easier
+     
+-->
+<body onload="loadXMLDoc('clothes.xml',sideMenuBuild,'ladies','none');displayResult('brands_ladies.xsl');">
     <!-- *** TOPBAR ***
  _________________________________________________________ -->
     <div id="top">
@@ -70,17 +72,17 @@ $_SESSION['total'] = $total;
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
-           <div class="col-md-6" data-animate="fadeInDown">
+         <div class="col-md-6" data-animate="fadeInDown">
 
                 <ul class="menu">
-                    
+                   
                     <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
                     <li><a href="contact.php">Contact</a>
                     </li>
-                    <li style="color:white;">  <?php echo getName(); ?> </li>
+                     <li style="color:white;">  <?php echo getName(); ?> </li>
                     
                 </ul>
             </div>
@@ -94,8 +96,8 @@ $_SESSION['total'] = $total;
                         <h4 class="modal-title" id="Login">Customer login</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="customer-orders.php" method="post">
-                          <div class="form-group">
+                        <form action="register.php?action=login" method="post">
+                            <div class="form-group">
                                 <input type="text" class="form-control" id="email-modal" placeholder="email" name="email">
                             </div>
                             <div class="form-group">
@@ -162,16 +164,15 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-man.php">T-shirts</a>
+                                                <li><a href='category-man.php?cType=T-shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>T-shirts</a>
                                                 </li>
-                                                <li><a href="category-man.php">Shirts</a>
-                                                </li>												
-                                                <li><a href="category-man.php">Pants</a>
-                                                </li>												
-                                                <!--
-												<li><a href="category-man.php">Accessories</a>
+                                                <li><a href='category-man.php?cType=Shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>Shirts</a>
+                                                </li>                                               
+                                                <li><a href='category-man.php?cType=Pants' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>Pants</a>
+                                                </li>                                               
+                                                
+                                                <li><a href='category-man.php?cType=Accessories' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')>Accessories</a>
                                                 </li>
-												-->
                                             </ul>
                                         </div>
                                         <!--<div class="col-sm-3">
@@ -190,9 +191,9 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-man.php">Bags</a>
+                                                 <li><a href="category-man.php?cType=bag" onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')>Bags</a>
                                                 </li>
-                                                <li><a href="category-man.php">Belts</a>
+                                                <li><a href="category-man.php?cType=belt" onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')>Belts</a>
                                                 </li>
 												<!--
                                                 <li><a href="category.php">Hiking shoes</a>
@@ -242,16 +243,16 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-lady.php">T-shirts</a>
+                                                <li><a href='category-lady.php?cType=T-shirt'onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>T-shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.php">Shirts</a>
+                                                <li><a href='category-lady.php?cType=Shirt'onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.php">Pants</a>
+                                                <li><a href='category-lady.php?cType=Pants'onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Pants</a>
                                                 </li>
-												<!--
-                                                <li><a href="category-lady.php">Accessories</a>
+												
+                                                <li><a href='category-lady.php?cType=Accessories'onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'> Accessories</a>
                                                 </li>
-												-->
+											
                                             </ul>
                                         </div>
                                         <!-- <div class="col-sm-3">
@@ -270,9 +271,9 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-lady.php">Bags</a>
+                                                <li><a href="category-lady.php?cType=bag" onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')>Bags</a>
                                                 </li>
-                                                <li><a href="category-lady.php">Belts</a>
+                                                <li><a href="category-lady.php?cType=belt" onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')>Belts</a>
                                                 </li>
 												<!--
                                                 <li><a href="category.php">Hiking shoes</a>
@@ -343,13 +344,7 @@ $_SESSION['total'] = $total;
                                             <h5>User</h5>
                                             <ul>
                                                 <li><a href="register.php">Register / login</a>
-                                                </li>
-                                                <li><a href="customer-orders.php">Orders history</a>
-                                                </li>
-                                                <li><a href="customer-order.php">Order history detail</a>
-                                                </li>
-                                                <li><a href="customer-account.php">Customer account / change password</a>
-                                                </li>
+                                                
                                             </ul>
                                         </div>
                                         <div class="col-sm-3">
@@ -411,7 +406,7 @@ $_SESSION['total'] = $total;
 
             <div class="collapse clearfix" id="search">
 
-              <form class="navbar-form" role="search">
+                <form class="navbar-form" role="search">
                     <div class="input-group">
                         <input list="searches" class="form-control" placeholder="Search" id="search_content" >
                         <datalist id="searches" autocomplete="off">
@@ -443,154 +438,418 @@ $_SESSION['total'] = $total;
                     <ul class="breadcrumb">
                         <li><a href="index.php">Home</a>
                         </li>
-                        <li>Checkout - Payment method</li>
+                        <li>Ladies</li>
                     </ul>
                 </div>
 
-                <div class="col-md-9" id="checkout">
+                <div class="col-md-3">
+                    <!-- *** MENUS AND FILTERS ***
+ _________________________________________________________ -->
+                    <div class="panel panel-default sidebar-menu">
 
-                    <div class="box">
-                        <!-- <form > -->
-                            <h1>Checkout - Payment method</h1>
-                            <ul class="nav nav-pills nav-justified">
-                                <li><a href="checkout1.php"><i class="fa fa-map-marker"></i><br>Address</a>
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Categories</h3>
+                        </div>
+
+                        <div class="panel-body">
+                            <ul class="nav nav-pills nav-stacked category-menu">
+                                <li id="men_list">
+                                    <a href="category-man.php#6">Men <span class="badge pull-right"></span></a>
+                                    <ul>
+                                        <li><a href="category-man.php?cType=T-shirt">T-shirts</a>
+                                        </li>
+                                        <li><a href="category-man.php?cType=Shirt">Shirts</a>
+                                        </li>
+                                        <li><a href="category-man.php?cType=Pants">Pants</a>
+                                        </li>
+                                        <li><a href="category-man.php?cType=Accessories">Accessories</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li><a href="checkout2.php"><i class="fa fa-truck"></i><br>Delivery Method</a>
+                                <li class="active" id="lady_list">
+                                    <a href="category-lady.php#6">Ladies  <span class="badge pull-right"></span></a>
+                                    <ul>
+                                        <li><a href="category-lady.php?cType=T-shirt">T-shirts</a>
+                                        </li>
+                                        <li><a href="category-lady.php?cType=Shirt">Shirts</a>
+                                        </li>
+                                        <li><a href="category-lady.php?cType=Pants">Pants</a>
+                                        </li>
+                                        <li><a href="category-lady.php?cType=Accessories">Accessories</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="active"><a href="#"><i class="fa fa-money"></i><br>Payment Method</a>
+								<!--
+                                <li>
+                                    <a href="category.php">Kids  <span class="badge pull-right">11</span></a>
+                                    <ul>
+                                        <li><a href="category.php">T-shirts</a>
+                                        </li>
+                                        <li><a href="category.php">Shirts</a>
+                                        </li>
+                                        <li><a href="category.php">Pants</a>
+                                        </li>
+                                        <li><a href="category.php">Accessories</a>
+                                        </li>
+                                    </ul>
                                 </li>
-                                <li class="disabled"><a href="order.php"><i class="fa fa-eye"></i><br>Order Review</a>
-                                </li>
+								commented by Shang 03/07/2017 -->
+
                             </ul>
 
-                            <div class="content">
-                                <div id="msg"> </div>
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="box payment-method">
-
-                                           
-                                        </div>
-                                    </div>
-
-                                    <div class="col-sm-6">
-                                        <div class="box payment-method">
-
-                                            <h4>Payment gateway</h4>
-
-                                            <p>VISA and Mastercard only.</p>
-                                            								
-																																	
-											<!--the following is added by Shang -->									                        
-											
-											
-											<ul class="list-unstyled list-inline">
-												<li class="list-inline-item"><img src="img/visa.svg" alt="visa" width="50"></li>
-												<li class="list-inline-item"><img src="img/mastercard.svg" alt="mastercard" width="50"></li>
-											</ul>
-											<div class="row">
-											  <div class="col-sm-10 form-group">
-												<input type="text" name="cardname" placeholder="Name On Card"  class="form-control" id="card_name" >
-											  </div>
-											  <div class="col-sm-10 form-group">
-												<input type="text" name="cardnumber" placeholder="Card Number" maxlength="16"  class="form-control" id="card_number">
-											  </div>
-											  <div class="col-sm-4 form-group">
-												<input type="text" name="expirymonth" placeholder="Expiry Month"  class="form-control" id="expiry_month">
-											  </div>
-											  <div class="col-sm-4 form-group">
-												<input type="text" name="expiryyear" placeholder="Expiry Year"  class="form-control" id="expiry_year">
-											  </div>
-											  <div class="col-sm-4 form-group">
-												<input type="text" name="cvv" placeholder="CVV" maxlength="3"  class="form-control" id="cvv">
-											  </div>
-											  
-											</div>
-											<!-- by shang payment end -->
-											<div id="error_msg"> </div>
-											<div class="box-footer text-center">
-
-                                                <input type="radio" name="payment" value="payment2">
-                                            </div>
-											
-                                        </div>
-                                    </div>
-
-                                    <!-- commented by Shang 
-									<div class="col-sm-6">
-                                        <div class="box payment-method">
-
-                                            <h4>Cash on delivery</h4>
-
-                                            <p>You pay when you get it.</p>
-
-                                            <div class="box-footer text-center">
-
-                                                <input type="radio" name="payment" value="payment3">
-                                            </div>
-                                        </div>
-                                    </div>
-									 end by shang -->
-									
-                                </div>
-                                <!-- /.row -->
-
-                            </div>
-                            <!-- /.content -->
-
-                            <div class="box-footer">
-                                <div class="pull-left">
-                                    <a href="checkout2.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Shipping method</a>
-                                </div>
-                                <div class="pull-right">
-                                    <button type="" class="btn btn-primary" id="button_3" >Continue to Order review<i class="fa fa-chevron-right"></i>
-                                    </button>
-                                </div>
-                            </div>
-                    <!-- </form > -->
+                        </div>
                     </div>
-                    <!-- /.box -->
+
+                    <div class="panel panel-default sidebar-menu">
+
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Brands <a class="btn btn-xs btn-danger pull-right" href="#" onclick='clearBrands()'><i class="fa fa-times-circle" ></i> Clear</a></h3>
+                        </div>
+
+                        <div class="panel-body">
+
+                            <form id="brands">
+                               <!-- <div class="form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">Armani (10)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">Versace (10)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">Carlo Bruni (2)
+                                        </label>
+                                    </div>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox">Jack Honey (2)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <button class="btn btn-default btn-sm btn-primary"><i class="fa fa-pencil"></i> Apply</button> -->
+
+                            </form>
+
+                        </div>
+                    </div>
+
+                    
+
+                    <!-- *** MENUS AND FILTERS END *** -->
+
+                    <div class="banner">
+                        <a href="#">
+                            <img src="img/banner.jpg" alt="sales 2014" class="img-responsive">
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="box">
+                        <h1>Ladies</h1>
+                        <p>In our Ladies department we offer wide selection of the best products we have found and carefully selected worldwide.</p>
+                    </div>
+
+                    <div class="box info-bar">
+                        <div class="row">
+                            <div class="col-sm-12 col-md-4 products-showing" id='showOf'>
+                              <!--Showing <strong>6</strong> of <strong>12</strong> products-->
+                            </div>
+
+                            <div class="col-sm-12 col-md-8  products-number-sort">
+                                <div class="row">
+                                    <form class="form-inline">
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="products-number" id='showSix'>
+                                                <strong>Show</strong>  <a href="category-lady.php?#6" class="btn btn-default btn-sm btn-primary" onclick="listItemsNumber(6,'ladies')">6</a>  
+                                                <a href="category-lady.php?#12" class="btn btn-default btn-sm" onclick="listItemsNumber(12,'ladies')">12</a>  
+                                                <a href="category-lady.php?#All" class="btn btn-default btn-sm" onclick="listItemsNumber(0,'ladies')">All products</a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-sm-6">
+                                            <div class="products-sort-by">
+                                                <strong>Sort by</strong>
+                                                <select name="sort-by" class="form-control" id="price" onclick="loadXMLDoc('clothes.xml',loadItems,'ladies','none')">
+                                                    <option>Price: low-high</option>
+													<option>Price: high-low</option>
+                                                    <!--<option>Sales first</option>-->
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row products" id='frontproduct'>
+
+                      <!--  <div class="col-md-4 col-sm-6">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.php">
+                                                <img src="img/product1.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.php">
+                                                <img src="img/product1_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.php" class="invisible">
+                                    <img src="img/product1.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.php">Fur coat</a></h3>
+                                    <p class="price">$143.00</p>
+                                    <p class="buttons">
+                                        <a href="detail.php" class="btn btn-default">View detail</a>
+                                        <a href="basket.php" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </p>
+                                </div>
+                                <!-- /.text -->
+                          <!--  </div>
+                            
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.php">
+                                                <img src="img/product2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.php">
+                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.php" class="invisible">
+                                    <img src="img/product2.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.php">White Blouse Armani</a></h3>
+                                    <p class="price"><del>$280</del> $143.00</p>
+                                    <p class="buttons">
+                                        <a href="detail.php" class="btn btn-default">View detail</a>
+                                        <a href="basket.php" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </p>
+                                </div>
+                             
+
+                                <div class="ribbon sale">
+                                    <div class="theribbon">SALE</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                      
+
+                                <div class="ribbon new">
+                                    <div class="theribbon">NEW</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                    
+
+                                <div class="ribbon gift">
+                                    <div class="theribbon">GIFT</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                         
+                            </div>
+                       
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.php">
+                                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.php">
+                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.php" class="invisible">
+                                    <img src="img/product3.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.php">Black Blouse Versace</a></h3>
+                                    <p class="price">$143.00</p>
+                                    <p class="buttons">
+                                        <a href="detail.php" class="btn btn-default">View detail</a>
+                                        <a href="basket.php" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </p>
+
+                                </div>
+                        
+                            </div>
+                     
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.php">
+                                                <img src="img/product3.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.php">
+                                                <img src="img/product3_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.php" class="invisible">
+                                    <img src="img/product3.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.php">Black Blouse Versace</a></h3>
+                                    <p class="price">$143.00</p>
+                                    <p class="buttons">
+                                        <a href="detail.php" class="btn btn-default">View detail</a>
+                                        <a href="basket.php" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </p>
+
+                                </div>
+                
+                            </div>
+                        -->
+                       <!-- </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.php">
+                                                <img src="img/product2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.php">
+                                                <img src="img/product2_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.php" class="invisible">
+                                    <img src="img/product2.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.php">White Blouse Versace</a></h3>
+                                    <p class="price">$143.00</p>
+                                    <p class="buttons">
+                                        <a href="detail.php" class="btn btn-default">View detail</a>
+                                        <a href="basket.php" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </p>
+
+                                </div>
+         
+
+                                <div class="ribbon new">
+                                    <div class="theribbon">NEW</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+         
+                            </div>
+            
+                        </div>
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="product">
+                                <div class="flip-container">
+                                    <div class="flipper">
+                                        <div class="front">
+                                            <a href="detail.php">
+                                                <img src="img/product1.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                        <div class="back">
+                                            <a href="detail.php">
+                                                <img src="img/product1_2.jpg" alt="" class="img-responsive">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="detail.php" class="invisible">
+                                    <img src="img/product1.jpg" alt="" class="img-responsive">
+                                </a>
+                                <div class="text">
+                                    <h3><a href="detail.php">Fur coat</a></h3>
+                                    <p class="price">$143.00</p>
+                                    <p class="buttons">
+                                        <a href="detail.php" class="btn btn-default">View detail</a>
+                                        <a href="basket.php" class="btn btn-primary"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                    </p>
+
+                                </div>
+                         
+
+                                <div class="ribbon gift">
+                                    <div class="theribbon">GIFT</div>
+                                    <div class="ribbon-background"></div>
+                                </div>
+                        
+
+                            </div>
+               
+                        </div> -->
+                   
+                    </div> 
+                
+                       
+                    <div class="pages">
+
+						<!--
+                        <p class="loadMore">
+                            <a href="#" class="btn btn-primary btn-lg"><i class="fa fa-chevron-down"></i> Load more</a>
+                        </p>
+						commented by shang 04/07/2017 -->
+
+                      
+                        <ul class="pagination" id="pages">
+                           <!-- <li><a href="#">&laquo;</a>
+                            </li>
+                            <li class="active" onclick='renderPages()'><a href="#">1</a>
+                            </li>
+                            <li><a href="#">2</a>
+                            </li>
+                            <li><a href="#">3</a>
+                            </li>
+                            <li><a href="#">4</a>
+                            </li>
+                            <li><a href="#">5</a>
+                            </li>
+                            <li><a href="#">&raquo;</a>
+                            </li>-->
+                        </ul>
+                    </div>
 
 
                 </div>
                 <!-- /.col-md-9 -->
-
-                <div class="col-md-3">
-
-                    <div class="box" id="order-summary">
-                        <div class="box-header">
-                            <h3>Order summary</h3>
-                        </div>
-                        <p class="text-muted">Shipping and additional costs are calculated based on the values you have entered.</p>
-
-                        <div class="table-responsive">
-                            <table class="table">
-                     <tbody>
-                                    <tr>
-                                        <td>Order subtotal</td>
-                                        <th>$<?php echo getTotal(); ?></th>
-                                    </tr>
-                                    <tr>
-                                        <td>Shipping and handling</td>
-                                        <th>$<?php echo getShipping(); ?></th>
-                                    </tr>
-                                    <tr>
-                                        <td>GST 10%</td>
-                                        <th>$<?php echo getGST(); ?></th>
-                                    </tr>
-                                    <tr class="total">
-                                        <td>Total</td>
-                                        <th>$<?php echo getTotalGST(); ?></th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-
-                    </div>
-
-                </div>
-                <!-- /.col-md-3 -->
-
             </div>
             <!-- /.container -->
         </div>
@@ -632,32 +891,33 @@ $_SESSION['total'] = $total;
                     </div>
                     <!-- /.col-md-3 -->
 
+                
                     <div class="col-md-3 col-sm-6">
 
                         <h4>Top categories</h4>
 
-                        <h5>Men</h5>
+                           <h5>Men</h5>
 
                         <ul>
-                            <li><a href="category-man.php">T-shirts</a>
+                            <li><a href="category-man.php?cType=T-shirt">T-shirts</a>
                             </li>
-                            <li><a href="category-man.php">Shirts</a>
+                            <li><a href="category-man.php?cType=Shirt">Shirts</a>
                             </li>
-							<li><a href="category-man.php">Pants</a>
+                            <li><a href="category-man.php?cType=Pants">Pants</a>
                             </li>
-                            <li><a href="category-man.php">Accessories</a>
+                            <li><a href="category-man.php?cType=Accessories">Accessories</a>
                             </li>
                         </ul>
 
                         <h5>Ladies</h5>
                         <ul>
-                            <li><a href="category-lady.php">T-shirts</a>
+                            <li><a href="category-lady.php?cType=T-shirt">T-shirts</a>
                             </li>
-                            <li><a href="category-lady.php">Skirts</a>
+                            <li><a href="category-lady.php?cType=Shirt">Shirts</a>
                             </li>
-                            <li><a href="category-lady.php">Pants</a>
+                            <li><a href="category-lady.php?cType=Pants">Pants</a>
                             </li>
-                            <li><a href="category-lady.php">Accessories</a>
+                            <li><a href="category-lady.php?cType=Accessories">Accessories</a>
                             </li>
                         </ul>
 
@@ -752,6 +1012,7 @@ $_SESSION['total'] = $total;
     <script src="js/bootstrap-hover-dropdown.js"></script>
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/front.js"></script>
+    <script src="js/template.js"></script>
 
 
 

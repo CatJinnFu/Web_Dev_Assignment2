@@ -66,10 +66,23 @@ if(!$_SESSION['cart']){ ?>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>     
     <script src="js/checkout.js"> </script>
-
-
+      <script  type="text/javascript">
+     $(document).ready(function(){
+        $("#country").val("<?php echo $_SESSION['country']; ?>");
+        $("#state").html(
+                                                     "<option value='VIC'>VIC</option>" +
+                                                     "<option value='NSW'>NSW</option>" +
+                                                     "<option value='WA'>WA</option>" +
+                                                     "<option value='TAS'>TAS</option>" +
+                                                     "<option value='NT'>NT</option>" +
+                                                     "<option value='SA'>SA</option>");  
+                                    
+        
+        $("#state").val("<?php echo $_SESSION['state']; ?>");
    
 
+    });
+     </script>
 </head>
 
 <body>
@@ -81,13 +94,16 @@ if(!$_SESSION['cart']){ ?>
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
             <div class="col-md-6" data-animate="fadeInDown">
+
                 <ul class="menu">
-                    <li><a href="register.php" data-toggle="modal" data-target="#login-modal">Login</a>
+                    
+                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
                     </li>
-                    <li><a href="register.php">Register</a>
+                    <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
-                    <li><a href="contact.html">Contact</a>
+                    <li><a href="contact.php">Contact</a>
                     </li>
+                    <li style="color:white;">  <?php echo getName(); ?> </li>
                     
                 </ul>
             </div>
@@ -134,7 +150,7 @@ if(!$_SESSION['cart']){ ?>
         <div class="container">
             <div class="navbar-header">
 
-                <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
+                <a class="navbar-brand home" href="index.php" data-animate-hover="bounce">
                     <img src="img/logo.png" alt="Obaju logo" class="hidden-xs">
                     <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
                 </a>
@@ -157,7 +173,7 @@ if(!$_SESSION['cart']){ ?>
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="index.html">Home</a>
+                    <li class="active"><a href="index.php">Home</a>
                     </li>
 														
 					<li class="dropdown yamm-fw">
@@ -169,14 +185,14 @@ if(!$_SESSION['cart']){ ?>
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-man.html">T-shirts</a>
+                                                <li><a href="category-man.php">T-shirts</a>
                                                 </li>
-                                                <li><a href="category-man.html">Shirts</a>
+                                                <li><a href="category-man.php">Shirts</a>
                                                 </li>												
-                                                <li><a href="category-man.html">Pants</a>
+                                                <li><a href="category-man.php">Pants</a>
                                                 </li>												
                                                 <!--
-												<li><a href="category-man.html">Accessories</a>
+												<li><a href="category-man.php">Accessories</a>
                                                 </li>
 												-->
                                             </ul>
@@ -184,31 +200,31 @@ if(!$_SESSION['cart']){ ?>
                                         <!--<div class="col-sm-3">
                                             <h5>Shoes</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
                                             </ul>
                                         </div> commented by Shang 03/07/2017-->
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-man.html">Bags</a>
+                                                <li><a href="category-man.php">Bags</a>
                                                 </li>
-                                                <li><a href="category-man.html">Belts</a>
+                                                <li><a href="category-man.php">Belts</a>
                                                 </li>
 												<!--
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
 												-->
                                             </ul>
@@ -216,20 +232,20 @@ if(!$_SESSION['cart']){ ?>
                                         <!--<div class="col-sm-3">
                                             <h5>Featured</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul>
                                             <h5>Looks and trends</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul>
                                         </div> commented by shang 03/07/2017-->
@@ -249,14 +265,14 @@ if(!$_SESSION['cart']){ ?>
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-lady.html">T-shirts</a>
+                                                <li><a href="category-lady.php">T-shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Shirts</a>
+                                                <li><a href="category-lady.php">Shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Pants</a>
+                                                <li><a href="category-lady.php">Pants</a>
                                                 </li>
 												<!--
-                                                <li><a href="category-lady.html">Accessories</a>
+                                                <li><a href="category-lady.php">Accessories</a>
                                                 </li>
 												-->
                                             </ul>
@@ -264,41 +280,41 @@ if(!$_SESSION['cart']){ ?>
                                         <!-- <div class="col-sm-3">
                                             <h5>Shoes</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
                                             </ul>
                                         </div>  commented by Shang 03/07/2017-->
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-lady.html">Bags</a>
+                                                <li><a href="category-lady.php">Bags</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Belts</a>
+                                                <li><a href="category-lady.php">Belts</a>
                                                 </li>
 												<!--
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
 												-->
                                             </ul>
                                             <!--<h5>Looks and trends</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul> commented by Shang 03/07/2017-->
                                         </div>
@@ -330,18 +346,18 @@ if(!$_SESSION['cart']){ ?>
                                         <div class="col-sm-3">
                                             <h5>Shop</h5>
                                             <ul>
-                                                <li><a href="index.html">Homepage</a>
+                                                <li><a href="index.php">Homepage</a>
                                                 </li>
-                                                <li><a href="category-man.html">Category - men</a>
+                                                <li><a href="category-man.php">Category - men</a>
                                                 </li>
-												<li><a href="category-lady.html">Category - ladies</a>
+												<li><a href="category-lady.php">Category - ladies</a>
                                                 </li>                                                 
                                                 <!--
-												<li><a href="category.html">Category - sidebar left</a>
+												<li><a href="category.php">Category - sidebar left</a>
                                                 </li>
-												<li><a href="category-full.html">Category - full width</a>
+												<li><a href="category-full.php">Category - full width</a>
                                                 </li> 
-                                                <li><a href="detail.html">Product detail</a>
+                                                <li><a href="detail.php">Product detail</a>
                                                 </li> 
 												-->
                                             </ul>
@@ -359,13 +375,13 @@ if(!$_SESSION['cart']){ ?>
                                                 <li><a href="basket.php">Shopping cart</a>
                                                 </li>
 												<!--
-                                                <li><a href="checkout1.html">Checkout - step 1</a>
+                                                <li><a href="checkout1.php">Checkout - step 1</a>
                                                 </li>
-                                                <li><a href="checkout2.html">Checkout - step 2</a>
+                                                <li><a href="checkout2.php">Checkout - step 2</a>
                                                 </li>
-                                                <li><a href="checkout3.html">Checkout - step 3</a>
+                                                <li><a href="checkout3.php">Checkout - step 3</a>
                                                 </li>
-                                                <li><a href="checkout4.html">Checkout - step 4</a>
+                                                <li><a href="checkout4.php">Checkout - step 4</a>
                                                 </li>
 												commented by Shang 03/07/2017-->
                                             </ul>
@@ -373,13 +389,13 @@ if(!$_SESSION['cart']){ ?>
                                         <div class="col-sm-3">
                                             <h5>Information</h5>
                                             <ul>                                                
-                                                <li><a href="aboutus.html">About us</a>
+                                                <li><a href="aboutus.php">About us</a>
                                                 </li>
-												<li><a href="terms.html">Terms and conditions</a>
+												<li><a href="terms.php">Terms and conditions</a>
                                                 </li>
-												<li><a href="faq.html">FAQ</a>
+												<li><a href="faq.php">FAQ</a>
                                                 </li>                                                                                                
-                                                <li><a href="contact.html">Contact</a>
+                                                <li><a href="contact.php">Contact</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -397,7 +413,7 @@ if(!$_SESSION['cart']){ ?>
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.php" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"></span></a>
+                    <a href="basket.php" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo itemsCart(); ?></span></a>
                 </div>
                 <!--/.nav-collapse -->
 
@@ -442,7 +458,7 @@ if(!$_SESSION['cart']){ ?>
 
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="index.html">Home</a>
+                        <li><a href="index.php">Home</a>
                         </li>
                         <li>Checkout - Address</li>
                     </ul>
@@ -506,25 +522,25 @@ if(!$_SESSION['cart']){ ?>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="city">City *</label>
-                                        <input type="text" class="form-control" id="city" value="melbourne">
+                                        <input type="text" class="form-control" id="city" value="<?php echo $_SESSION['city']; ?>" name="city">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="postcode">Postcode *</label>
-                                        <input type="text" class="form-control" id="postcode" value="<?php echo $_SESSION['postcode']; ?>">
+                                        <input type="text" class="form-control" id="postcode" value="<?php echo $_SESSION['postcode']; ?>" ame="postcode">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="state">State *</label>
-                                        <select class="form-control" id="state" value="<?php echo $_SESSION['state']; ?>" name="state"></select>
+                                        <select class="form-control" id="state" selected="<?php echo $_SESSION['state']; ?>" name="state"></select>
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="country">Country *</label>
-                                        <select class="form-control" id="country" value="<?php echo $_SESSION['country']; ?>" name="country">
+                                        <select class="form-control" id="country">
                                                                                        <option value=""></option>
                                                  <option value="AX">Åland Islands</option>
     <option value="AL">Albania</option>
@@ -781,7 +797,7 @@ if(!$_SESSION['cart']){ ?>
                                 <div class="col-sm-6">
                                     <div class="form-group">
                                         <label for="phone">Telephone *</label>
-                                        <input type="text" class="form-control" id="phone" name="phone">
+                                        <input type="text" class="form-control" id="phone" name="phone" value="<?php echo $_SESSION['phone']; ?>" name="phone">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
@@ -862,13 +878,13 @@ if(!$_SESSION['cart']){ ?>
                     <div class="col-md-3 col-sm-6">
                         <h4>Information</h4>
 
-                        <li><a href="aboutus.html">About us</a>
+                        <li><a href="aboutus.php">About us</a>
                             </li>
-                            <li><a href="terms.html">Terms and conditions</a>
+                            <li><a href="terms.php">Terms and conditions</a>
                             </li>
-                            <li><a href="faq.html">FAQ</a>
+                            <li><a href="faq.php">FAQ</a>
                             </li>
-                            <li><a href="contact.html">Contact us</a>
+                            <li><a href="contact.php">Contact us</a>
                             </li>
 
                         <hr>
@@ -894,25 +910,25 @@ if(!$_SESSION['cart']){ ?>
                         <h5>Men</h5>
 
                         <ul>
-                            <li><a href="category-man.html">T-shirts</a>
+                            <li><a href="category-man.php">T-shirts</a>
                             </li>
-                            <li><a href="category-man.html">Shirts</a>
+                            <li><a href="category-man.php">Shirts</a>
                             </li>
-							<li><a href="category-man.html">Pants</a>
+							<li><a href="category-man.php">Pants</a>
                             </li>
-                            <li><a href="category-man.html">Accessories</a>
+                            <li><a href="category-man.php">Accessories</a>
                             </li>
                         </ul>
 
                         <h5>Ladies</h5>
                         <ul>
-                            <li><a href="category-lady.html">T-shirts</a>
+                            <li><a href="category-lady.php">T-shirts</a>
                             </li>
-                            <li><a href="category-lady.html">Skirts</a>
+                            <li><a href="category-lady.php">Skirts</a>
                             </li>
-                            <li><a href="category-lady.html">Pants</a>
+                            <li><a href="category-lady.php">Pants</a>
                             </li>
-                            <li><a href="category-lady.html">Accessories</a>
+                            <li><a href="category-lady.php">Accessories</a>
                             </li>
                         </ul>
 
@@ -933,7 +949,7 @@ if(!$_SESSION['cart']){ ?>
                             <strong>Australia</strong>
                         </p>
 
-                        <a href="contact.html">Go to contact page</a>
+                        <a href="contact.php">Go to contact page</a>
 
                         <hr class="hidden-md hidden-lg">
 

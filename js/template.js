@@ -61,17 +61,17 @@ function sideMenuBuild(xmlhttp){
   var x=xmlhttp.responseXML.documentElement.getElementsByTagName("men");
   totalItemsMen = x[0].getElementsByTagName("item").length;
   //listItemsNumber(6);
-  var txt="<a href='category-man.html?#6'>Men" + "<span class='badge pull-right'>" 
+  var txt="<a href='category-man.php?#6'>Men" + "<span class='badge pull-right'>" 
   + x[0].getElementsByTagName("item").length + "</span></a>\n" +"<ul>\n";
   //var i = 0;
   //for (i=0;i<x.length;i++)
-      txt += "<li> <a href='category-man.html?cType=T-shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>T-shirts</a>\n" +
+      txt += "<li> <a href='category-man.php?cType=T-shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>T-shirts</a>\n" +
                                         "</li>\n" +
-                                        "<li><a href='category-man.html?cType=Shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>Shirts</a>\n" +
+                                        "<li><a href='category-man.php?cType=Shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>Shirts</a>\n" +
                                         "</li>\n" +
-                                        "<li><a href='category-man.html?cType=Pants' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>Pants</a>\n" +
+                                        "<li><a href='category-man.php?cType=Pants' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')'>Pants</a>\n" +
                                         "</li>\n" +
-                                        "<li><a href='category-man.html?cType=Accessories' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')''>Accessories</a>\n" +
+                                        "<li><a href='category-man.php?cType=Accessories' onclick='loadXMLDoc('clothes.xml',loadItems,'men','none')''>Accessories</a>\n" +
                                         "</li>\n" +
                                     "</ul>\n" +
                                 "</li>";
@@ -83,17 +83,17 @@ function sideMenuBuild(xmlhttp){
 
 
   
-  txt="<a href='category-lady.html?#6'>Ladies" + "<span class='badge pull-right'>" 
+  txt="<a href='category-lady.php?#6'>Ladies" + "<span class='badge pull-right'>" 
   + x[0].getElementsByTagName("item").length  + "</span></a>\n" +"<ul>\n";
   //var i = 0;
   //for (i=0;i<x.length;i++)
-      txt += "<li><a href='category-lady.html?cType=T-shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>T-shirts</a>\n" +
+      txt += "<li><a href='category-lady.php?cType=T-shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>T-shirts</a>\n" +
                                         "</li>\n" +
-                                        "<li><a href='category-lady.html?cType=Shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Shirts</a>\n" +
+                                        "<li><a href='category-lady.php?cType=Shirt' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Shirts</a>\n" +
                                         "</li>\n" +
-                                        "<li><a href='category-lady.html?cType=Pants' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Pants</a>\n" +
+                                        "<li><a href='category-lady.php?cType=Pants' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Pants</a>\n" +
                                         "</li>\n" +
-                                        "<li><a href='category-lady.html?cType=Accessories' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Accessories</a>\n" +
+                                        "<li><a href='category-lady.php?cType=Accessories' onclick='loadXMLDoc('clothes.xml',loadItems,'ladies','none')'>Accessories</a>\n" +
                                         "</li>\n" +
                                     "</ul>\n" +
                                 "</li>";
@@ -291,11 +291,11 @@ function loadItems(xmlhttp){
          if((testBrand && cType == 'none') || (testBrand && (cType === testType)) || (testBrand && (loadCheckBeltBag(details)===cType))) {
             count++;
             itemTxt +="<div class='col-md-4 col-sm-6'><div class='product'><div class='flip-container'><div class='flipper'>" +
-                      "<div class='front'><a href='detail.html#" + id +"?"+ type_ + "=" + cGender +"'><img src='img/product_img/" + imgOne +".jpg' alt='"+ imgOne +"' class='img-responsive'>" +
-                      "</a></div><div class='back'><a href='detail.html#" + id +"?"+ type_ + "=" + cGender +"'><img src='img/product_img/" + imgTwo + ".jpg' alt='"+ imgTwo +"' class='img-responsive'>" +
-                      "</a></div></div></div><a href='detail.html#" + id +"?"+ type_ + "=" + cGender +"' class='invisible'><img src='img/product_img/" + imgOne +".jpg' alt='"+ imgOne +"' class='img-responsive'></a>" +
-                      "<div class='text'><h3><a href='detail.html#" + id +"?"+ type_ + "=" + cGender +"'>" + details + "</a></h3><p class='price'>" + price + "</p><p class='buttons'>" +
-                      "<a href='detail.html#" + id +"?"+ type_ + "=" + cGender +"' class='btn btn-default'>View detail</a><a href='basket.php?action=add&g="+cGender +"&t="+type_+"&id="+id+"' class='btn btn-primary'>" + 
+                      "<div class='front'><a href='detail.php#" + id +"?"+ type_ + "=" + cGender +"'><img src='img/product_img/" + imgOne +".jpg' alt='"+ imgOne +"' class='img-responsive'>" +
+                      "</a></div><div class='back'><a href='detail.php#" + id +"?"+ type_ + "=" + cGender +"'><img src='img/product_img/" + imgTwo + ".jpg' alt='"+ imgTwo +"' class='img-responsive'>" +
+                      "</a></div></div></div><a href='detail.php#" + id +"?"+ type_ + "=" + cGender +"' class='invisible'><img src='img/product_img/" + imgOne +".jpg' alt='"+ imgOne +"' class='img-responsive'></a>" +
+                      "<div class='text'><h3><a href='detail.php#" + id +"?"+ type_ + "=" + cGender +"'>" + details + "</a></h3><p class='price'>" + price + "</p><p class='buttons'>" +
+                      "<a href='detail.php#" + id +"?"+ type_ + "=" + cGender +"' class='btn btn-default'>View detail</a><a href='basket.php?action=add&g="+cGender +"&t="+type_+"&id="+id+"' class='btn btn-primary'>" + 
                       "<i class='fa fa-shopping-cart'></i>Add to cart</a></p></div>" +
                       "</div></div></div></div>";
 
@@ -572,20 +572,20 @@ function listItemsNumber(num, gender=cGender){
         
         
         if(num === 6){
-          var showTxt = "<strong>Show</strong>  <a href='category-"+gender +".html?#6' class=' btn-default btn-sm btn-primary' onclick='listItemsNumber(6)'>6</a>" +  
-                                                "<a href='category-"+gender +".html?#12' class='btn btn-default btn-sm' onclick='listItemsNumber(12)'>12</a>" +  
-                                                "<a href='category-"+gender +".html?#All' class='btn btn-default btn-sm' onclick='listItemsNumber(0)'>All products</a>";
+          var showTxt = "<strong>Show</strong>  <a href='category-"+gender +".php?#6' class=' btn-default btn-sm btn-primary' onclick='listItemsNumber(6)'>6</a>" +  
+                                                "<a href='category-"+gender +".php?#12' class='btn btn-default btn-sm' onclick='listItemsNumber(12)'>12</a>" +  
+                                                "<a href='category-"+gender +".php?#All' class='btn btn-default btn-sm' onclick='listItemsNumber(0)'>All products</a>";
 
                                              
         } else if (num === 12){
-           var showTxt = "<strong>Show</strong>  <a href='category-"+gender +".html?#6' class='btn btn-default btn-sm ' onclick='listItemsNumber(6)'>6</a>" +  
-                                                "<a href='category-"+gender +".html?#12' class='btn btn-default btn-sm btn-primary' onclick='listItemsNumber(12)'>12</a>" +  
-                                                "<a href='category-"+gender +".html?#All' class='btn btn-default btn-sm' onclick='listItemsNumber(0)'>All products</a>";
+           var showTxt = "<strong>Show</strong>  <a href='category-"+gender +".php?#6' class='btn btn-default btn-sm ' onclick='listItemsNumber(6)'>6</a>" +  
+                                                "<a href='category-"+gender +".php?#12' class='btn btn-default btn-sm btn-primary' onclick='listItemsNumber(12)'>12</a>" +  
+                                                "<a href='category-"+gender +".php?#All' class='btn btn-default btn-sm' onclick='listItemsNumber(0)'>All products</a>";
                                                   
         } else {
-            var showTxt = "<strong>Show</strong>  <a href='category-"+gender +".html?#6' class='btn btn-default btn-sm' onclick='listItemsNumber(6)'>6</a>" +  
-                                                "<a href='category-"+gender +".html?#12' class='btn btn-default btn-sm' onclick='listItemsNumber(12)'>12</a>" +  
-                                                "<a href='category-"+gender +".html?#All' class='btn btn-default btn-sm btn-primary' onclick='listItemsNumber(0)'>All products</a>";
+            var showTxt = "<strong>Show</strong>  <a href='category-"+gender +".php?#6' class='btn btn-default btn-sm' onclick='listItemsNumber(6)'>6</a>" +  
+                                                "<a href='category-"+gender +".php?#12' class='btn btn-default btn-sm' onclick='listItemsNumber(12)'>12</a>" +  
+                                                "<a href='category-"+gender +".php?#All' class='btn btn-default btn-sm btn-primary' onclick='listItemsNumber(0)'>All products</a>";
                                                 
 
         } 
@@ -658,9 +658,9 @@ function renderPages(page){
    
 
         if(page-1 != 0){
-           txtPages = "<li><a href='category-"+iGender +".html?#"+pageItems+"' onclick='renderPages("+ (page-1) + ")'>&laquo;</a></li>";
+           txtPages = "<li><a href='category-"+iGender +".php?#"+pageItems+"' onclick='renderPages("+ (page-1) + ")'>&laquo;</a></li>";
         } else {
-           txtPages = "<li><a href='category-"+iGender +".html?#"+pageItems+"' onclick='renderPages("+ page + ")'>&laquo;</a></li>";
+           txtPages = "<li><a href='category-"+iGender +".php?#"+pageItems+"' onclick='renderPages("+ page + ")'>&laquo;</a></li>";
        }
 
         
@@ -672,13 +672,13 @@ function renderPages(page){
 
 
              if(j+1 == page) {
-                txtPages += " <li class='active'><a href='category-"+iGender +".html?#"+pageItems+"' onclick='renderPages("+ page + ")'>"+page+"</a></li>";
+                txtPages += " <li class='active'><a href='category-"+iGender +".php?#"+pageItems+"' onclick='renderPages("+ page + ")'>"+page+"</a></li>";
                 
                 
 
              } else {
                
-                txtPages += "<li><a href='category-"+iGender +".html?#"+pageItems+"' onclick='renderPages("+ (j+1) + ")'>"+(j+1)+"</a></li>" ;
+                txtPages += "<li><a href='category-"+iGender +".php?#"+pageItems+"' onclick='renderPages("+ (j+1) + ")'>"+(j+1)+"</a></li>" ;
 
              }
 
@@ -686,9 +686,9 @@ function renderPages(page){
 
          
        if(page < pages){
-         txtPages += "<li><a href='category-"+iGender+".html?#"+pageItems+"' onclick='renderPages("+ (page+1) + ")'>&raquo;</a></li>";
+         txtPages += "<li><a href='category-"+iGender+".php?#"+pageItems+"' onclick='renderPages("+ (page+1) + ")'>&raquo;</a></li>";
          } else {
-           txtPages += "<li><a href='category-"+iGender +".html?#"+pageItems+"' onclick='renderPages("+ page + ")'>&raquo;</a></li>";
+           txtPages += "<li><a href='category-"+iGender +".php?#"+pageItems+"' onclick='renderPages("+ page + ")'>&raquo;</a></li>";
        }
      
                                  

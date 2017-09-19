@@ -95,9 +95,13 @@ function setUpAccount(){
     	   $_SESSION['address'] =  oci_result($stmt,"ADDRESS");
     	   $_SESSION['state']=  oci_result($stmt,"STATE");
     	   $_SESSION['country']=  oci_result($stmt,"COUNTRY");
+         $_SESSION['city'] =  oci_result($stmt,"CITY");
+         $_SESSION['company'] =  oci_result($stmt,"COMPANY");
     	   $_SESSION['emaildb'] =  oci_result($stmt,"EMAIL");
+         $_SESSION['postcode'] =  oci_result($stmt,"POSTCODE");
+         $_SESSION['phone'] =  oci_result($stmt,"PHONE");
     	   //forgot to add this to database. So just using some dummy data, if i get time ill fix it up.
-    	   $_SESSION['postcode'] = '3000';
+    	   //$_SESSION['postcode'] = '3000';
     	   
    	   }
     
@@ -111,7 +115,7 @@ function setUpAccount(){
 }
 
 /*
-* Write new details for teh users Account to the database.
+* Write new details for the users Account to the database.
 */
 
 function updateAccount(){
@@ -122,7 +126,11 @@ function updateAccount(){
         $address = $_SESSION['address'] ;
         $state = $_SESSION['state'];
         $country = $_SESSION['country'];
+        $city = $_SESSION['city'];
+        $company = $_SESSION['company'];
+        $postcode = $_SESSION['postcode'];
         $email = $_SESSION['email'];
+        $phone = $_SESSION['phone'];
         $emaildb = $_SESSION['emaildb'];
         $password = $_SESSION['password'] ;
 
@@ -144,7 +152,7 @@ function updateAccount(){
         $User_id =  oci_result($stmt,"USER_ID");
       }
 
-      $query = "UPDATE Users SET firstname ='$firstname', lastname = '$lastname', address = '$address', state = '$state', country = '$country', email = '$emaildb' WHERE USER_ID='$User_id'";   
+      $query = "UPDATE Users SET firstname ='$firstname', lastname = '$lastname', address = '$address', state = '$state', country = '$country', company='$company', email = '$emaildb', city ='$city', postcode='$postcode', phone = '$phone' WHERE USER_ID='$User_id'";   
 
       echo "/n-update--" . $query;
 

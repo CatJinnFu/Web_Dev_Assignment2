@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<clothes>
+<men>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  Armani Jeans Crew Neck Gradient T Shirt White  </product>
+  <brand>Armani</brand>
+  <price>  AU$70  </price>
+  <details>  Armani Jeans Crew Neck Gradient T Shirt In White, A classic t shirt with a ribbed crew neckline and short sleeves. An overall dip dye effect gradient design in white and navy.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</description>
+ <photos>
+  <photo_one>men_tshirts_1_small</photo_one>
+  <photo_two>men_tshirts_1_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  Armani Jeans Logo Crew Neck T Shirt Blue  </product>
+  <brand>Armani</brand>
+  <price>  AU$50  </price>
+  <details>  Armani Jeans Logo Crew Neck T Shirt In Night Blue, A ribbed crew neckline and short sleeves. A large signature Armani Jeans logo design is printed on the chest in blue and white..  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</description>
+ <photos>
+  <photo_one>men_tshirts_2_small</photo_one>
+  <photo_two>men_tshirts_2_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 3.</id>
+  <product>  Versace Jeans Logo T Shirt Blue  </product>
+  <brand>Versace</brand>
+  <price>  AU$100  </price>
+  <details>  Versace Jeans Logo T Shirt In Blue, Regular Fit. A classic cotton t shirt with a ribbed crew neck and short sleeves. The front of the body has repeated Versace Jeans logos printed in silver. Top stitching in blue.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</description>
+ <photos>
+  <photo_one>men_tshirts_3_small</photo_one>
+  <photo_two>men_tshirts_3_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 4.</id>
+  <product>  Versace Jeans Printed T Shirt Green  </product>
+  <brand>Versace</brand>
+  <price>  AU$150  </price>
+  <details>  Versace Jeans Printed T Shirt In Turquoise Green, Slim Fit. Allover baroque and animal print in turquoise green, blue, black and yellow with a ribbed crew neck in black and short sleeves. A signature Versace Jeans logo is printed on the chest in black.  </details>
+  <material>  * 95% Cotton And 5% Elastane  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</description>
+ <photos>
+  <photo_one>men_tshirts_4_small</photo_one>
+  <photo_two>men_tshirts_4_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 5.</id>
+  <product>  Columbian-fit Hawaii print T-shirt  </product>
+  <brand>Armani</brand>
+  <price>  AU$1000  </price>
+  <details>  This multicolour blue Hawaii print T-shirt depicts the image of a windswept sea and sinking ship.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of trendy tops, crafted with intricate details. Create a chic statement look by teaming this lace number with skinny jeans and pumps.</description>
+ <photos>
+  <photo_one>men_tshirts_5_small</photo_one>
+  <photo_two>men_tshirts_5_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  Armani Collezioni Long Sleeved Check Shirt Navy  </product>
+  <brand>Armani</brand>
+  <price>  AU$200  </price>
+  <details>  Armani Collezioni Long Sleeved Check Shirt In Navy, An overall woven gingham check design in navy and white on a textured seersucker fabric. A full front grey pearlescent Armani Collezioni logo embossed button opening with a standard shirt collar and adjustable button fastening cuffs on the long sleeves.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>men_shirts_1_small</photo_one>
+  <photo_two>men_shirts_1_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  Versace Collezioni Long Sleeved Check Shirt Navy  </product>
+  <brand>Versace</brand>
+  <price>  AU$200  </price>
+  <details>  Versace Collezioni Long Sleeved Check Shirt In Navy, An overall woven gingham check design in navy and white on a textured seersucker fabric. A full front grey pearlescent Versace Collezioni logo embossed button opening with a standard shirt collar and adjustable button fastening cuffs on the long sleeves.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace’s new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>men_shirts_2_small</photo_one>
+  <photo_two>men_shirts_2_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 3.</id>
+  <product>  Versace Jeans Long Sleeved Shirt Black  </product>
+  <brand>Versace</brand>
+  <price>  AU$200  </price>
+  <details>  Versace Jeans Long Sleeved Shirt In Black, Slim Fit. A full front black Versace Jeans button fastening with a dark metal Versace Jeans Tiger logo top button. A standard shirt collar with button fastening cuffs on the long sleeves. The front of the shirt features an overall Versace Jeans Tiger logo design in white.  </details>
+  <material>  * 96% Cotton And 4% Elastane.  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>men_shirts_3_small</photo_one>
+  <photo_two>men_shirts_3_large</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Pants</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  Jack Honey Newbill Comfort Fit Jeans Blue  </product>
+  <brand>Jack Honey</brand>
+  <price>  AU$170  </price>
+  <details>  Jack Honey Newbill Comfort Fit Forever Dark Jeans In An 11oz Dark Indigo Blue Stretch Denim, A full black and dark metal Jack Honey logo embossed button fly with six large belt loops on the waistband.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Jack Honey's new range of jeans, crafted with intricate details.</description>
+ <photos>
+  <photo_one>men_pants_1_front</photo_one>
+  <photo_two>men_pants_1_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Pants</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  Carlo Bruni Waitom Regular Slim Fit Jeans Blue  </product>
+  <brand>Carlo Bruni</brand>
+  <price>  AU$115  </price>
+  <details>  Carlo Bruni Waitom Regular Slim Fit Jeans In An 11.5oz Deep Blue Denim, Intentional fading to typical stress points with intentional crease effect to the thighs, waistband and reverse of the knees.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Carlo Bruni's new range of jeans, crafted with intricate details.</description>
+ <photos>
+  <photo_one>men_pants_2_front</photo_one>
+  <photo_two>men_pants_2_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Accessories</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  Armani Jeans Small Shoulder Bag Blue  </product>
+  <brand>Armani</brand>
+  <price>  AU$125  </price>
+  <details>  Armani Jeans Small Shoulder Bag in Blue, Large adjustable shoulder strap in black with the body of the bag in a blue woven canvas fabric.  </details>
+  <material>  * 100% Polyester  * Hand wash  </material>
+  <size>* The bag measures 8 inches in width and 8.5 inches in height. </size>
+  <description>Define style this season with Armani's new range of bags, crafted with intricate details.</description>
+ <photos>
+  <photo_one>men_acc_1_picA </photo_one>
+  <photo_two>men_acc_1_picB </photo_two>
+ </photos>
+</item>
+<item>
+  <type>Accessories</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  Armani Exchange Reversible Belt Black  </product>
+  <brand>Armani</brand>
+  <price>  AU$100  </price>
+  <details>  Armani Exchange Reversible Leather Belt In Black And Phantom Grey, A genuine leather belt strap with one side in black and the alternative side in phantom dark grey. Five holes at the squared end and a dark metal AX logo buckle.  </details>
+  <material>  * 100% Genuine Leather  </material>
+  <size>* 36” Waist </size>
+  <description>Define style this season with Armani's new range of belts, crafted with intricate details</description>
+ <photos>
+  <photo_one>men_acc_2_picA </photo_one>
+  <photo_two>men_acc_2_picB </photo_two>
+ </photos>
+</item>
+<item>
+  <type>Accessories</type>
+  <type_meta></type_meta>
+  <id> 3.</id>
+  <product>  Versace Jeans Reversible Leather Belt Black  </product>
+  <brand>Versace</brand>
+  <price>  AU$70  </price>
+  <details>  Versace Jeans Reversible Leather Belt in Black And Blue, A square reversible silver coloured metal pin buckle featuring the signature Versace Jeans logo on the metal belt loop. The belt strap is in black saffiano leather on one side with the alternate side in a textured blue suede leather.  </details>
+  <material>  * 100% leather  </material>
+  <size>* 36” Waist </size>
+  <description>Define style this season with Versace's new range of belts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>men_acc_3_picA </photo_one>
+  <photo_two>men_acc_3_picB </photo_two>
+ </photos>
+</item>
+</men>
+<ladies>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  A|X WINGS LOGO TEE  </product>
+  <brand>Armani</brand>
+  <price>  AU$50  </price>
+  <details>  Delicate wings evoke A|X's classic eagle insignia in a new way.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of Tees, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_tshirt_1_front</photo_one>
+  <photo_two>ladies_tshirt_1_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  SEQUIN LOGO CREWNECK TEE  </product>
+  <brand>Armani</brand>
+  <price>  AU$50  </price>
+  <details>  Our classic logo gets a glam update, studded in high-shine reflective sequins.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of tees, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_tshirt_2_front</photo_one>
+  <photo_two>ladies_tshirt_2_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 3.</id>
+  <product>  Versace Embroidered T-shirt  </product>
+  <brand>Versace</brand>
+  <price>  AU$415  </price>
+  <details>  Embroidered in neon green, the designer's name serves as a bold announcement of the iconic house. Wear the buttoned-neck look with your favourite bomber jacket for downtown cool.  </details>
+  <material>  * 90% viscose, 10% elastane  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_tshirt_3_front</photo_one>
+  <photo_two>ladies_tshirt_3_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>T-shirt</type>
+  <type_meta></type_meta>
+  <id> 4.</id>
+  <product>  Versace Logo contrast top  </product>
+  <brand>Versace</brand>
+  <price>  AU$1200  </price>
+  <details>  Make a vibrant statement with this top from Versace with its contrasting colour panels. The designer logo emblazoned on the front has a tactile feel that shows your love for Versace artfully.  </details>
+  <material>  * 71% acetate, 29% viscose  * Dry clean  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_tshirt_4_front</photo_one>
+  <photo_two>ladies_tshirt_4_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  Armani Blue stretch cotton plain shirt  </product>
+  <brand>Armani</brand>
+  <price>  AU$115  </price>
+  <details>  Blue stretch cotton plain shirt from Armani Jeans. Crafted from a high quality fabric, this piece delivers a soft touch to the skin whilst keeping your basic ensembles stylish.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_shirts_1_front</photo_one>
+  <photo_two>ladies_shirts_1_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  Armani Chambray Shirt  </product>
+  <brand>Armani</brand>
+  <price>  AU$115  </price>
+  <details>  This Armani Jeans Chambray shirt is a luxurious alternative to a classic denim shirt. Crafted from a high quality fabric, this piece delivers a soft touch to the skin whilst keeping your basic ensembles stylish.  </details>
+  <material>  * 100% lyocell  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Armani's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_shirts_2_front</photo_one>
+  <photo_two>ladies_shirts_2_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 3.</id>
+  <product>  Versace Printed silk-twill shirt  </product>
+  <brand>Versace</brand>
+  <price>  AU$1350  </price>
+  <details>  This silk-twill shirt is paneled with leopard spots through the front and zebra stripes at the back. It's finished with gold 'Medusa' buttons at the collar and cuffs and is intended for a slightly loose fit.  </details>
+  <material>  * 100% silk  * Dry clean  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace’s new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_shirts_3_front</photo_one>
+  <photo_two>ladies_shirts_3_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 4.</id>
+  <product>  Versace Baroccoflage print shirt  </product>
+  <brand>Versace</brand>
+  <price>  AU$1450  </price>
+  <details>  Cut in Italy from multicoloured silk, the vibrant piece boasts a classic collar, long sleeves with button cuffs, a concealed front button placket, a loose-fitting flowy silhouette.  </details>
+  <material>  * 100% silk  * Dry clean  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_shirts_4_front</photo_one>
+  <photo_two>ladies_shirts_4_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Shirt</type>
+  <type_meta></type_meta>
+  <id> 5.</id>
+  <product>  Versace printed shirt  </product>
+  <brand>Versace</brand>
+  <price>  AU$650  </price>
+  <details>  This multicoloured printed shirt is a prime example, fashioned in Italy from lustrous silk. It features a classic collared neckline, long sleeves with buttoned cuffs, a concealed front button fastening, a loose fit and a curved hemline.  </details>
+  <material>  * 100% silk  * Dry clean  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Versace's new range of shirts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_shirts_5_front</photo_one>
+  <photo_two>ladies_shirts_5_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Pants</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  Carlo Bruni Cream High Waisted Wide Leg pants  </product>
+  <brand>Carlo Bruni</brand>
+  <price>  AU$65  </price>
+  <details>  With super flattering curve skimming fabric and tailoring detail. Wear with a crop top, shirt or bodysuit for a sophisticated feel. Length approx 115cm/45".  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Carlo Bruni's new range of fashion, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_pants_1_front</photo_one>
+  <photo_two>ladies_pants_1_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Pants</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  Jack Honey loose fit cropped pants  </product>
+  <brand>Jack Honey</brand>
+  <price>  AU$115  </price>
+  <details>  Beige loose fit cropped trousers.  </details>
+  <material>  * 100% Cotton  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Jack Honey's new range of pants, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_pants_2_front</photo_one>
+  <photo_two>ladies_pants_2_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Pants</type>
+  <type_meta></type_meta>
+  <id> 3.</id>
+  <product>  Jack Honey striped flared trousers  </product>
+  <brand>Jack Honey</brand>
+  <price>  AU$515  </price>
+  <details>  Black and brown striped flared trousers from Jack Honey.  </details>
+  <material>  * 100% Viscose  * Machine wash  </material>
+  <size>* Regular fit* The model (height 5'8" and chest 33") is wearing a size S </size>
+  <description>Define style this season with Jack Honey's new range of pants, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_pants_3_front</photo_one>
+  <photo_two>ladies_pants_3_back</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Accessories</type>
+  <type_meta></type_meta>
+  <id> 1.</id>
+  <product>  Versace Medusa belt  </product>
+  <brand>Versace</brand>
+  <price>  AU$666  </price>
+  <details>  Black calf leather Medusa belt from Versace featuring gold-tone hardware and an adjustable fit.  </details>
+  <material>  * 100% Calf Leather  </material>
+  <size>* Size: 36” Waist </size>
+  <description>Define style this season with Versace's new range of belts, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_acc_1_picA</photo_one>
+  <photo_two>ladies_acc_1_picB</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Accessories</type>
+  <type_meta></type_meta>
+  <id> 2.</id>
+  <product>  Armani Borsa Bag  </product>
+  <brand>Armani</brand>
+  <price>  AU$666  </price>
+  <details>  The Borsa Shopping Bag from Armani Jeans is sleek and simple with its luxe leather-look shell, silver-toned hardware and elegant red lining.  </details>
+  <material>  * 100% Calf Leather  </material>
+  <size>* Size: H28cm x W46cm x D8cm </size>
+  <description>Define style this season with Armani's new range of bags, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_acc_2_picA</photo_one>
+  <photo_two>ladies_acc_2_picB</photo_two>
+ </photos>
+</item>
+<item>
+  <type>Accessories</type>
+  <type_meta></type_meta>
+  <id> 3.</id>
+  <product>  Carlo Bruni clutch  </product>
+  <brand>Carlo Bruni</brand>
+  <price>  AU$1666  </price>
+  <details>  Black leather knuckle box clutch from Alexander McQueen featuring gold-tone hardware, an oblong body, crystal embellishments and a gold-tone stud detailing.  </details>
+  <material>  * 50% Leather  * 50% other fibres  </material>
+  <size>* Size: H7cm x W22cm x D4.5cm </size>
+  <description>Define style this season with Carlo Bruni's new range of bags, crafted with intricate details.</description>
+ <photos>
+  <photo_one>ladies_acc_3_picA</photo_one>
+  <photo_two>ladies_acc_3_picB</photo_two>
+ </photos>
+</item>
+</ladies>
+</clothes>

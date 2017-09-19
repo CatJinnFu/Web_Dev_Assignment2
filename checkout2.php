@@ -15,7 +15,10 @@ session_start();
 require_once('php/search.php');
 require_once('php/global-connect.php');
 require_once('php/functions.php');
+require_once('php/functions-login.php');
+require_once('php/checkout.php');
 $_SESSION['total'] = $total;
+
 ?>
 
 <!DOCTYPE html>
@@ -68,14 +71,17 @@ $_SESSION['total'] = $total;
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
-            <div class="col-md-6" data-animate="fadeInDown">
+             <div class="col-md-6" data-animate="fadeInDown">
+
                 <ul class="menu">
-                    <li><a href="#" data-toggle="modal" data-target="#login-modal">Login</a>
+                    
+                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
                     </li>
-                    <li><a href="register.php">Register</a>
+                    <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
-                    <li><a href="contact.html">Contact</a>
+                    <li><a href="contact.php">Contact</a>
                     </li>
+                    <li style="color:white;">  <?php echo getName(); ?> </li>
                     
                 </ul>
             </div>
@@ -89,7 +95,7 @@ $_SESSION['total'] = $total;
                         <h4 class="modal-title" id="Login">Customer login</h4>
                     </div>
                     <div class="modal-body">
-                        <form action="customer-orders.html" method="post">
+                        <form action="customer-orders.php" method="post">
                           <div class="form-group">
                                 <input type="text" class="form-control" id="email-modal" placeholder="email" name="email">
                             </div>
@@ -122,7 +128,7 @@ $_SESSION['total'] = $total;
         <div class="container">
             <div class="navbar-header">
 
-                <a class="navbar-brand home" href="index.html" data-animate-hover="bounce">
+                <a class="navbar-brand home" href="index.php" data-animate-hover="bounce">
                     <img src="img/logo.png" alt="Obaju logo" class="hidden-xs">
                     <img src="img/logo-small.png" alt="Obaju logo" class="visible-xs"><span class="sr-only">Obaju - go to homepage</span>
                 </a>
@@ -145,7 +151,7 @@ $_SESSION['total'] = $total;
             <div class="navbar-collapse collapse" id="navigation">
 
                 <ul class="nav navbar-nav navbar-left">
-                    <li class="active"><a href="index.html">Home</a>
+                    <li class="active"><a href="index.php">Home</a>
                     </li>
 														
 					<li class="dropdown yamm-fw">
@@ -157,14 +163,14 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-man.html">T-shirts</a>
+                                                <li><a href="category-man.php">T-shirts</a>
                                                 </li>
-                                                <li><a href="category-man.html">Shirts</a>
+                                                <li><a href="category-man.php">Shirts</a>
                                                 </li>												
-                                                <li><a href="category-man.html">Pants</a>
+                                                <li><a href="category-man.php">Pants</a>
                                                 </li>												
                                                 <!--
-												<li><a href="category-man.html">Accessories</a>
+												<li><a href="category-man.php">Accessories</a>
                                                 </li>
 												-->
                                             </ul>
@@ -172,31 +178,31 @@ $_SESSION['total'] = $total;
                                         <!--<div class="col-sm-3">
                                             <h5>Shoes</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
                                             </ul>
                                         </div> commented by Shang 03/07/2017-->
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-man.html">Bags</a>
+                                                <li><a href="category-man.php">Bags</a>
                                                 </li>
-                                                <li><a href="category-man.html">Belts</a>
+                                                <li><a href="category-man.php">Belts</a>
                                                 </li>
 												<!--
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
 												-->
                                             </ul>
@@ -204,20 +210,20 @@ $_SESSION['total'] = $total;
                                         <!--<div class="col-sm-3">
                                             <h5>Featured</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul>
                                             <h5>Looks and trends</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul>
                                         </div> commented by shang 03/07/2017-->
@@ -237,14 +243,14 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Clothing</h5>
                                             <ul>
-                                                <li><a href="category-lady.html">T-shirts</a>
+                                                <li><a href="category-lady.php">T-shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Shirts</a>
+                                                <li><a href="category-lady.php">Shirts</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Pants</a>
+                                                <li><a href="category-lady.php">Pants</a>
                                                 </li>
 												<!--
-                                                <li><a href="category-lady.html">Accessories</a>
+                                                <li><a href="category-lady.php">Accessories</a>
                                                 </li>
 												-->
                                             </ul>
@@ -252,41 +258,41 @@ $_SESSION['total'] = $total;
                                         <!-- <div class="col-sm-3">
                                             <h5>Shoes</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
                                             </ul>
                                         </div>  commented by Shang 03/07/2017-->
                                         <div class="col-sm-6"> <!-- col-sm-3 is changed to col-sm-6 by Shang-->
                                             <h5>Accessories</h5>
                                             <ul>
-                                                <li><a href="category-lady.html">Bags</a>
+                                                <li><a href="category-lady.php">Bags</a>
                                                 </li>
-                                                <li><a href="category-lady.html">Belts</a>
+                                                <li><a href="category-lady.php">Belts</a>
                                                 </li>
 												<!--
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
-                                                <li><a href="category.html">Casual</a>
+                                                <li><a href="category.php">Casual</a>
                                                 </li>
 												-->
                                             </ul>
                                             <!--<h5>Looks and trends</h5>
                                             <ul>
-                                                <li><a href="category.html">Trainers</a>
+                                                <li><a href="category.php">Trainers</a>
                                                 </li>
-                                                <li><a href="category.html">Sandals</a>
+                                                <li><a href="category.php">Sandals</a>
                                                 </li>
-                                                <li><a href="category.html">Hiking shoes</a>
+                                                <li><a href="category.php">Hiking shoes</a>
                                                 </li>
                                             </ul> commented by Shang 03/07/2017-->
                                         </div>
@@ -318,18 +324,18 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-3">
                                             <h5>Shop</h5>
                                             <ul>
-                                                <li><a href="index.html">Homepage</a>
+                                                <li><a href="index.php">Homepage</a>
                                                 </li>
-                                                <li><a href="category-man.html">Category - men</a>
+                                                <li><a href="category-man.php">Category - men</a>
                                                 </li>
-												<li><a href="category-lady.html">Category - ladies</a>
+												<li><a href="category-lady.php">Category - ladies</a>
                                                 </li>                                                 
                                                 <!--
-												<li><a href="category.html">Category - sidebar left</a>
+												<li><a href="category.php">Category - sidebar left</a>
                                                 </li>
-												<li><a href="category-full.html">Category - full width</a>
+												<li><a href="category-full.php">Category - full width</a>
                                                 </li> 
-                                                <li><a href="detail.html">Product detail</a>
+                                                <li><a href="detail.php">Product detail</a>
                                                 </li> 
 												-->
                                             </ul>
@@ -339,11 +345,11 @@ $_SESSION['total'] = $total;
                                             <ul>
                                                 <li><a href="register.php">Register / login</a>
                                                 </li>
-                                                <li><a href="customer-orders.html">Orders history</a>
+                                                <li><a href="customer-orders.php">Orders history</a>
                                                 </li>
-                                                <li><a href="customer-order.html">Order history detail</a>
+                                                <li><a href="customer-order.php">Order history detail</a>
                                                 </li>
-                                                <li><a href="customer-account.html">Customer account / change password</a>
+                                                <li><a href="customer-account.php">Customer account / change password</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -353,13 +359,13 @@ $_SESSION['total'] = $total;
                                                 <li><a href="basket.php">Shopping cart</a>
                                                 </li>
 												<!--
-                                                <li><a href="checkout1.html">Checkout - step 1</a>
+                                                <li><a href="checkout1.php">Checkout - step 1</a>
                                                 </li>
-                                                <li><a href="checkout2.html">Checkout - step 2</a>
+                                                <li><a href="checkout2.php">Checkout - step 2</a>
                                                 </li>
-                                                <li><a href="checkout3.html">Checkout - step 3</a>
+                                                <li><a href="checkout3.php">Checkout - step 3</a>
                                                 </li>
-                                                <li><a href="checkout4.html">Checkout - step 4</a>
+                                                <li><a href="checkout4.php">Checkout - step 4</a>
                                                 </li>
 												commented by Shang 03/07/2017-->
                                             </ul>
@@ -367,13 +373,13 @@ $_SESSION['total'] = $total;
                                         <div class="col-sm-3">
                                             <h5>Information</h5>
                                             <ul>                                                
-                                                <li><a href="aboutus.html">About us</a>
+                                                <li><a href="aboutus.php">About us</a>
                                                 </li>
-												<li><a href="terms.html">Terms and conditions</a>
+												<li><a href="terms.php">Terms and conditions</a>
                                                 </li>
-												<li><a href="faq.html">FAQ</a>
+												<li><a href="faq.php">FAQ</a>
                                                 </li>                                                                                                
-                                                <li><a href="contact.html">Contact</a>
+                                                <li><a href="contact.php">Contact</a>
                                                 </li>
                                             </ul>
                                         </div>
@@ -391,7 +397,7 @@ $_SESSION['total'] = $total;
             <div class="navbar-buttons">
 
                 <div class="navbar-collapse collapse right" id="basket-overview">
-                    <a href="basket.php" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"></span></a>
+                    <a href="basket.php" class="btn btn-primary navbar-btn"><i class="fa fa-shopping-cart"></i><span class="hidden-sm"><?php echo itemsCart(); ?></span></a>
                 </div>
                 <!--/.nav-collapse -->
 
@@ -436,7 +442,7 @@ $_SESSION['total'] = $total;
 
                 <div class="col-md-12">
                     <ul class="breadcrumb">
-                        <li><a href="index.html">Home</a>
+                        <li><a href="index.php">Home</a>
                         </li>
                         <li>Checkout - Delivery method</li>
                     </ul>
@@ -448,7 +454,7 @@ $_SESSION['total'] = $total;
                         
                             <h1>Checkout - Delivery method</h1>
                             <ul class="nav nav-pills nav-justified">
-                                <li><a href="checkout1.html"><i class="fa fa-map-marker"></i><br>Address</a>
+                                <li><a href="checkout1.php"><i class="fa fa-map-marker"></i><br>Address</a>
                                 </li>
                                 <li class="active"><a href="#"><i class="fa fa-truck"></i><br>Delivery Method</a>
                                 </li>
@@ -512,7 +518,7 @@ $_SESSION['total'] = $total;
 
                             <div class="box-footer">
                                 <div class="pull-left">
-                                    <a href="basket.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Addresses</a>
+                                    <a href=checkout1.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to Addresses</a>
                                 </div>
                                 <div class="pull-right">
                                     <button type="submit" class="btn btn-primary" id="button_2">Continue to Payment Method<i class="fa fa-chevron-right"></i>
@@ -577,13 +583,13 @@ $_SESSION['total'] = $total;
                         <h4>Information</h4>
 
                         <ul>
-                            <li><a href="aboutus.html">About us</a>
+                            <li><a href="aboutus.php">About us</a>
                             </li>
-                            <li><a href="terms.html">Terms and conditions</a>
+                            <li><a href="terms.php">Terms and conditions</a>
                             </li>
-                            <li><a href="faq.html">FAQ</a>
+                            <li><a href="faq.php">FAQ</a>
                             </li>
-                            <li><a href="contact.html">Contact us</a>
+                            <li><a href="contact.php">Contact us</a>
                             </li>
                         </ul>
 
@@ -610,25 +616,25 @@ $_SESSION['total'] = $total;
                         <h5>Men</h5>
 
                         <ul>
-                            <li><a href="category-man.html">T-shirts</a>
+                            <li><a href="category-man.php">T-shirts</a>
                             </li>
-                            <li><a href="category-man.html">Shirts</a>
+                            <li><a href="category-man.php">Shirts</a>
                             </li>
-							<li><a href="category-man.html">Pants</a>
+							<li><a href="category-man.php">Pants</a>
                             </li>
-                            <li><a href="category-man.html">Accessories</a>
+                            <li><a href="category-man.php">Accessories</a>
                             </li>
                         </ul>
 
                         <h5>Ladies</h5>
                         <ul>
-                            <li><a href="category-lady.html">T-shirts</a>
+                            <li><a href="category-lady.php">T-shirts</a>
                             </li>
-                            <li><a href="category-lady.html">Skirts</a>
+                            <li><a href="category-lady.php">Skirts</a>
                             </li>
-                            <li><a href="category-lady.html">Pants</a>
+                            <li><a href="category-lady.php">Pants</a>
                             </li>
-                            <li><a href="category-lady.html">Accessories</a>
+                            <li><a href="category-lady.php">Accessories</a>
                             </li>
                         </ul>
 
@@ -649,7 +655,7 @@ $_SESSION['total'] = $total;
                             <strong>Australia</strong>
                         </p>
 
-                        <a href="contact.html">Go to contact page</a>
+                        <a href="contact.php">Go to contact page</a>
 
                         <hr class="hidden-md hidden-lg">
 

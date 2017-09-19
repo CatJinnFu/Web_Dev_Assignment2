@@ -41,14 +41,17 @@ function writeOrder(){
 
 
 	if(!userExists($firstname,$lastname,$email,$db)){
-         	$query = "INSERT INTO Users (password,firstname,lastname,address,state,country,email) 
+         	$query = "INSERT INTO Users (password,firstname,city,postcode,lastname,address,state,phone,country,email) 
             VALUES 
             ('password',
              '$firstname',
              '$lastname',
              '$address', 
              '$state',
+          	 '$city',
+          	 '$postcode', 	
              '$country',
+             'phone',
              '$email')";
 
 
@@ -63,7 +66,25 @@ function writeOrder(){
              }
             
             oci_execute($stmt);
-    } 
+    } else {
+
+    		$User_ID = userExists($firstname,$lastname,$email,$db);
+
+    		$query = "UPDATE Users SET firstname ='$firstname', lastname = '$lastname', address = '$address', state = '$state', country = '$country', email = '$emaildb', city ='$city', postcode='$postcode', phone = '$phone' WHERE USER_ID='$User_id'";   
+
+      		echo "/n-update--" . $query;
+
+      		$stmt = oci_parse($db, $query); 
+            
+       		if(!$stmt) {
+                echo "An error occurred in parsing the sql string.\n"; 
+                exit; 
+       		}            
+    
+      		oci_execute($stmt);
+
+
+    }
 
    
 	//insert order into DB
@@ -367,7 +388,7 @@ function showCart() {
 			
 			$output[] = '<tr>';
 			$output[] = "<td><img src='img/product_img/".$photo.".jpg' ></a></td>";
-			$output[] = "<td><a href='detail.html#".$lookUp[2]."?".$lookUp[1]."=".$lookUp[0]."'>".$product."</a></td>";
+			$output[] = "<td><a href='detail.php#".$lookUp[2]."?".$lookUp[1]."=".$lookUp[0]."'>".$product."</a></td>";
 			$output[] = '<td><input type="number" name="'.$lookUp[0].','.$lookUp[1].','.$lookUp[2].'" value='.$qty.' class="form-control"></td>';
 			$output[] = '<td>'.$price.'</td>';
 			$output[] = '<td></td>';

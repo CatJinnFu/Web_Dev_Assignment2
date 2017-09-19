@@ -36,6 +36,8 @@ CREATE TABLE Users
        lastname VARCHAR2(25),
        address VARCHAR2(25),
        state VARCHAR2(25),
+       city VARCHAR2(25),
+       company VARCHAR2(25),
        country VARCHAR2(25),
        postcode VARCHAR2(25),  
        phone VARCHAR2(25), 

@@ -13,7 +13,7 @@
 
 
 
-session_start();
+//session_start();
 $firstname = $_SESSION['firstname'];
 $lastname = $_SESSION['lastname'];
 $address = $_SESSION['address'];

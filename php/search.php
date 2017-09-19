@@ -61,7 +61,7 @@ foreach($xml->ladies as $ladies){
             q'[$csize]',
             q'[$description]',
              '$photo_one',
-             '$photo_two')"z;
+             '$photo_two')";
          	//Type,$id,$product,$brand,$price,$details,$material,$csize,$description,$photo_one,$photo_two)
              // echo $query;
          	$stmt = oci_parse($connect, $query); 
