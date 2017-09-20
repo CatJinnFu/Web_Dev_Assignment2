@@ -74,14 +74,14 @@ require_once('php/checkout.php');
             <div class="col-md-6" data-animate="fadeInDown">
 
                 <ul class="menu">
-                   
-                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
+                    
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "<a href='customer-orders.php'>Logged In</a>";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
                     <li><a href="contact.php">Contact</a>
                     </li>
-                     <li style="color:white;">  <?php echo getName(); ?> </li>
+                    <li style="color:white;">  <?php echo getName(); ?> </li>
                     
                 </ul>
             </div>
@@ -99,11 +99,11 @@ require_once('php/checkout.php');
                     </div>
                     <div class="modal-body">
                         <form action="register.php?action=login" method="post">
-                            <div class="form-group">
-                                <input type="text" class="form-control" id="email" placeholder="email" name="email">
+                              <div class="form-group">
+                                <input type="text" class="form-control" id="email" placeholder="email" name="email" value="<?php echo $_SESSION['email']?>">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password" placeholder="password" name="password">
+                                <input type="password" class="form-control" id="password" placeholder="password" name="password" value="<?php echo $_SESSION['password']?>">
                             </div>
 
                             <p class="text-center">

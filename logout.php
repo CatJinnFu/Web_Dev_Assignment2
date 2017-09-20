@@ -74,11 +74,11 @@ session_start();
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
-              <div class="col-md-6" data-animate="fadeInDown">
+                  <div class="col-md-6" data-animate="fadeInDown">
 
                 <ul class="menu">
                     
-                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "<a href='customer-orders.php'>Logged In</a>";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
@@ -100,10 +100,10 @@ session_start();
                     <div class="modal-body">
                         <form action="register.php?action=login" method="post">
                             <div class="form-group">
-                                <input type="text" class="form-control" id="email-modal" placeholder="email">
+                                <input type="text" class="form-control" id="email-modal" placeholder="email" name="email">
                             </div>
                             <div class="form-group">
-                                <input type="password" class="form-control" id="password-modal" placeholder="password">
+                                <input type="password" class="form-control" id="password-modal" placeholder="password" name="password">
                             </div>
 
                             <p class="text-center">

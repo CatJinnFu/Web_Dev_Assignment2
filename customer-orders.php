@@ -75,7 +75,7 @@ require_once('php/functions-account.php');
 
                 <ul class="menu">
                     
-                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "<a href='customer-orders.php'>Logged In</a>";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>

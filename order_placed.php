@@ -154,11 +154,11 @@ $_SESSION['cart'] = $cart;
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
-           <div class="col-md-6" data-animate="fadeInDown">
+               <div class="col-md-6" data-animate="fadeInDown">
 
                 <ul class="menu">
                     
-                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "<a href='customer-orders.php'>Logged In</a>";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
@@ -538,9 +538,10 @@ $_SESSION['cart'] = $cart;
                                     <table class="table">
                                         <?php echo writeOrder(); 
                                                 $_SESSION['cart']=''; 
+
                                         ?>
                                        <p>Your order is being prepared for shipment.</p>
-                                
+                                        <?php  if($_SESSION['newAccount'] == 'True') {echo "Your New Account Password is : " . $_SESSION['password'];} ?>
                                     </table>
 
                                 </div>

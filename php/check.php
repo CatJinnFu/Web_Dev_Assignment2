@@ -12,13 +12,13 @@
 
 
 session_start();
-$firstname = $_SESSION['firstname'];
-$address = $_SESSION['address'];
-$company = $_SESSION['company'];
-$city = $_SESSION['city'];
-$postcode = $_SESSION['postcode'];
-$state = $_SESSION['state'];
-$phone = $_SESSION['phone'];
+//$firstname = $_SESSION['firstname'];
+//$address = $_SESSION['address'];
+//$company = $_SESSION['company'];
+//$city = $_SESSION['city'];
+//$postcode = $_SESSION['postcode'];
+//$state = $_SESSION['state'];
+//$phone = $_SESSION['phone'];
 $card_name = "";
 $card_number = "";
 $expiry_month = "";
@@ -41,6 +41,9 @@ switch ($fieldname)
 		break;
         case 'city':
          $_SESSION['city'] = $value;
+	    break;
+	    case 'country':
+         $_SESSION['country'] = $value;
 	    break;
 		case 'postcode' :
 		 $_SESSION['postcode'] = validatePostCode($value);
@@ -78,26 +81,25 @@ switch ($fieldname)
 
 
 /*
-* Checks for all email permutations.
+* Checks for all email. 
 */
 
 function validateEmail($email){
-	/*return "Let's See";
-	if(filter_var($email, FILTER_VALIDATE_EMAIL)) {
-     return "Let's See";
-	} else{
-     return "error";
-	}
-	echo "here";*/
+
+	/*if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+  		return "error"; 
+    } else {
+    	return $email;
+    }*/
+	
    //see if its a valid number
    //test normal numbar
-   $pattern1 = "/^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\.[a-zA-Z.]{2,5}$/";
+   $pattern1 = '/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})$/';
   
   
    if (preg_match($pattern1,$email)) {  return $email;}
-   else { return "error"; }
-   //test mobile number 
-   //if its not then its an error */     
+   else { echo "error"; }
+ 
 }
 
 
@@ -111,6 +113,7 @@ function validateEmail($email){
 */
 
 function validatePhone($phone){
+
    //see if its a valid number
    //test normal numbar
    $pattern1 = "/^\([0-9]{2}\)\s*[0-9]{4}\s*[0-9]{4}$/";
@@ -137,11 +140,12 @@ function validatePostCode($post){
   
    if(intval($post) != 0){
    //see if its a number
-   		echo "here" . intval($post);
+   		
    		return intval($post);
 
    //if its not then its an error		
    } else {
+
    	 echo "error";
    }
 
@@ -153,6 +157,8 @@ function validatePostCode($post){
 
 function validateCardNumber($post){
   
+
+
    if(intval($post) != 0  &&  strlen("" . $post) == 16){
    //see if its a number
    		

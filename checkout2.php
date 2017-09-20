@@ -18,6 +18,17 @@ require_once('php/functions.php');
 require_once('php/functions-login.php');
 require_once('php/checkout.php');
 $_SESSION['total'] = $total;
+$_SESSION['firstname'] =  $_POST["firstname"];
+$_SESSION['lastname']=  $_POST["lastname"];
+$_SESSION['address'] =  $_POST["address"];
+$_SESSION['state']= $_POST["state"];
+$_SESSION['country']=  $_POST["country"];
+$_SESSION['city']=  $_POST["city"];
+$_SESSION['company']=  $_POST["company"];
+$_SESSION['postcode']=  $_POST["postcode"];
+$_SESSION['emaildb'] =  $_POST["email"];
+$_SESSION['phone'] =  $_POST["phone"];
+//if($_SESSION['User_ID']){ updateAccount(); }
 
 ?>
 
@@ -71,11 +82,11 @@ $_SESSION['total'] = $total;
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
-             <div class="col-md-6" data-animate="fadeInDown">
+                <div class="col-md-6" data-animate="fadeInDown">
 
                 <ul class="menu">
                     
-                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "<a href='customer-orders.php'>Logged In</a>";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>

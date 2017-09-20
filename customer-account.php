@@ -18,7 +18,7 @@ require_once('php/functions-account.php');
 //retrive order from database.
 $_SESSION['Order_ID'] = $_GET["orderid"]; 
 $error = '';
-setUpAccount();
+echo setUpAccount();
 
 
 
@@ -101,7 +101,9 @@ switch ($action) {
     <script src="js/checkout.js"> </script> 
     <script  type="text/javascript">
      $(document).ready(function(){
+        
         $("#country").val("<?php echo $_SESSION['country']; ?>");
+
         $("#state").html(
                                                      "<option value='VIC'>VIC</option>" +
                                                      "<option value='NSW'>NSW</option>" +
@@ -126,11 +128,11 @@ switch ($action) {
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
-            <div class="col-md-6" data-animate="fadeInDown">
+           <div class="col-md-6" data-animate="fadeInDown">
 
                 <ul class="menu">
                     
-                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "<a href='customer-orders.php'>Logged In</a>";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
@@ -579,6 +581,7 @@ switch ($action) {
                         <hr>
 
                         <h3>Personal details</h3>
+                        <div id="errors"></div>
                         <form action="customer-account.php?action=personal" method="post">
                             <div class="row">
                                 <div class="col-sm-6">
@@ -903,7 +906,7 @@ switch ($action) {
          
 
                                 <div class="col-sm-12 text-center">
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-save"></i> Save changes</button>
+                                    <button type="submit" class="btn btn-primary" id="aButton" disabled><i class="fa fa-save"></i> Save changes</button>
 
                                 </div>
       

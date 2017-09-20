@@ -36,22 +36,28 @@ function writeOrder(){
 	$state = $_SESSION['state'];
 	$phone = $_SESSION['phone'];
 	$email = $_SESSION['email'];
-	$action = $_GET['action'];
 	$total = $_SESSION['total'];
+	
+
+	echo "variable---" . $email . "-" . $phone . "-" . $postcode;
 
 
 	if(!userExists($firstname,$lastname,$email,$db)){
-         	$query = "INSERT INTO Users (password,firstname,city,postcode,lastname,address,state,phone,country,email) 
+
+			$password = random_password(4);
+
+         	$query = "INSERT INTO Users (password,firstname,lastname,address,company,city,postcode,state,phone,country,email) 
             VALUES 
-            ('password',
+            ('$password',
              '$firstname',
              '$lastname',
              '$address', 
-             '$state',
-          	 '$city',
-          	 '$postcode', 	
+             '$company', 
+             '$city',
+          	 '$postcode',
+          	 '$state', 	
+             '$phone',
              '$country',
-             'phone',
              '$email')";
 
 
@@ -66,13 +72,16 @@ function writeOrder(){
              }
             
             oci_execute($stmt);
+
+            $_SESSION['password'] = $password;
+
     } else {
 
     		$User_ID = userExists($firstname,$lastname,$email,$db);
 
-    		$query = "UPDATE Users SET firstname ='$firstname', lastname = '$lastname', address = '$address', state = '$state', country = '$country', email = '$emaildb', city ='$city', postcode='$postcode', phone = '$phone' WHERE USER_ID='$User_id'";   
+    		$query = "UPDATE Users SET firstname ='$firstname', lastname = '$lastname', address = '$address', state = '$state', country = '$country', city ='$city', postcode='$postcode', phone = '$phone' WHERE USER_ID='$User_ID'";   
 
-      		echo "/n-update--" . $query;
+      		echo "---q1--" . $query;
 
       		$stmt = oci_parse($db, $query); 
             
@@ -88,7 +97,7 @@ function writeOrder(){
 
    
 	//insert order into DB
-    $User_ID = (int) userExists($firstname,$lastname,$email,$db);
+    $User_id = userExists($firstname,$lastname,$email,$db);
     $Status = 'ordered';
     $Order_Date = date("Y-m-d h:i:sa");
 	  
@@ -97,7 +106,9 @@ function writeOrder(){
 		//,Status,Order_Date,Total
     $query = "INSERT INTO Orders (User_ID, Status,Order_Date, Total) 
             VALUES 
-            ( $User_ID,'$Status','$Order_Date','$total')";
+            ('$User_id','$Status','$Order_Date','$total')";
+
+            echo "---q2--" . $query;
 
 				//'$Status',
              //'$Order_Date',
@@ -117,7 +128,7 @@ function writeOrder(){
 
 
 	//insert products into DB
-    $Order_ID = returnOrder_ID($User_ID,$Status,$Order_Date,$total,$db);
+    $Order_ID = returnOrder_ID($User_id,$Status,$Order_Date,$total,$db);
     
 
 
@@ -163,7 +174,7 @@ function writeOrder(){
              '$qty',
              '$price')";
 
-           
+           echo "---" . $query;
 
             $stmt = oci_parse($db, $query); 
 
@@ -179,7 +190,8 @@ function writeOrder(){
        
 
 		}
-		
+		$_SESSION['ORDER_ID'] = $Order_ID;
+		$_SESSION['USER_ID'] = $User_id;
 		return "<h2 align='center'>Order Placed</h2>";
 	
 	} else{
@@ -442,6 +454,11 @@ function getTotalGST(){
 
 }
 
+function random_password( $length = 8 ) {
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()_-=+;:,.?";
+    $password = substr( str_shuffle( $chars ), 0, $length );
+    return $password;
+}
 
 
 

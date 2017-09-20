@@ -70,14 +70,15 @@ function changePassword($new){
 
 function setUpAccount(){
 	global $db;
-
-	$email = $_SESSION['email'];
+  //$email = $_SESSION['email'];
+	if($_SESSION['email']) { $email = $_SESSION['email']; }
+  else {$email = $_SESSION['emaildb'];}
 	$password = $_SESSION['password'] ;
 
 	//login to database and get details
 	$query = "SELECT * FROM Users WHERE password = '$password' AND  email ='$email' " ;
       
-       
+  echo "--AU--" . $query;    
         
        $stmt = oci_parse($db, $query); 
             
@@ -104,11 +105,12 @@ function setUpAccount(){
     	   //$_SESSION['postcode'] = '3000';
     	   
    	   }
-    
-
+      echo "--COUNTRY--" . $_SESSION['country'];  
+      echo "--postcode--" . $_SESSION['postcode']; 
+       $_SESSION['email'] = $_SESSION['emaildb'];
    	    
-
-	   return "setup" . $email;
+       //$_SESSION['email'] = $_SESSION['emaildb'];
+	   return "setup" . $_SESSION['phone'] . ' p' . $password . ' e' . $email;
 
 
 
@@ -162,11 +164,11 @@ function updateAccount(){
                 echo "An error occurred in parsing the sql string.\n"; 
                 exit; 
        }            
-    
+      
       oci_execute($stmt);
 
 
-    
+      $_SESSION['email'] = $_SESSION['emaildb'];
       return "Your Account Details have been updated.";
 
 } 

@@ -16,11 +16,20 @@ require_once('php/global-connect.php');
 require_once('php/functions.php');
 require_once('php/functions-login.php');
 require_once('php/functions-account.php');
+echo setupAccount();
+
 $_SESSION['total'] = $total;
 
 if(!$_SESSION['cart']){ ?>
 <script type="text/javascript">location.href = 'basket.php';</script>
 <?php 
+}
+
+if(getName() == ' '){
+   $_SESSION['newAccount'] = 'True';
+
+} else {
+    $_SESSION['newAccount'] = 'False';
 }
 
 ?>
@@ -93,11 +102,11 @@ if(!$_SESSION['cart']){ ?>
             <div class="col-md-6 offer" data-animate="fadeInDown">
                 <a href="#" class="btn btn-success btn-sm" data-animate-hover="shake">Offer of the day</a>  <a href="#">Get flat 35% off on orders over $500!</a>
             </div>
-            <div class="col-md-6" data-animate="fadeInDown">
+              <div class="col-md-6" data-animate="fadeInDown">
 
                 <ul class="menu">
                     
-                    <li><a href="register.php?action=login" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "Logged In";}?></a>
+                    <li><a href="#" data-toggle="modal" data-target="#login-modal"><?php if(getName()==' ') {echo "Login";} else {echo "<a href='customer-orders.php'>Logged In</a>";}?></a>
                     </li>
                     <li><a href="register.php"><?php if(getName() == ' ') {echo "Register";} else {echo "Register Account";}?></a>
                     </li>
@@ -481,7 +490,8 @@ if(!$_SESSION['cart']){ ?>
                             </ul>
 
                             <div class="content">
-                                 <div id="errors"></div>    
+                                 <div id="errors"></div> 
+                                 <form action="checkout2.php" method="post" id="form">   
 								<p class="from-group text-muted">* field is compulsory.</p> <!-- added by Shang -->
 								
                                 
@@ -528,7 +538,7 @@ if(!$_SESSION['cart']){ ?>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="postcode">Postcode *</label>
-                                        <input type="text" class="form-control" id="postcode" value="<?php echo $_SESSION['postcode']; ?>" ame="postcode">
+                                        <input type="text" class="form-control" id="postcode" value="<?php echo $_SESSION['postcode']; ?>" name="postcode">
                                     </div>
                                 </div>
                                 <div class="col-sm-6 col-md-3">
@@ -540,7 +550,7 @@ if(!$_SESSION['cart']){ ?>
                                 <div class="col-sm-6 col-md-3">
                                     <div class="form-group">
                                         <label for="country">Country *</label>
-                                        <select class="form-control" id="country">
+                                        <select class="form-control" id="country" selected="<?php echo $_SESSION['country']; ?>" name="country">
                                                                                        <option value=""></option>
                                                  <option value="AX">Åland Islands</option>
     <option value="AL">Albania</option>
@@ -817,12 +827,14 @@ if(!$_SESSION['cart']){ ?>
                                     <a href="basket.php" class="btn btn-default"><i class="fa fa-chevron-left"></i>Back to basket</a>
                                 </div>
                                 <div class="pull-right">
-                                    <button  class="btn btn-primary" id='aButton'>Continue to Delivery Method<i class="fa fa-chevron-right"></i>
+                                    <button  class="btn btn-primary" id='aButton' disabled>Continue to Delivery Method<i class="fa fa-chevron-right"></i>
                                     </button>
                                 </div>
                             </div>
                         
+                    </form>
                     </div>
+
                     <!-- /.box -->
 
 

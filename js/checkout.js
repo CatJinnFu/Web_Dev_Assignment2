@@ -16,7 +16,7 @@ $(document).ready(function(){
            
 
         $("#firstname").blur(function(){
-        		$.post("php/checkout.php",{
+        		$.post("php/check.php",{
         								   fieldname:"firstname",
         								   value:$("#firstname").val()
         								  }, function(data, status){
@@ -26,7 +26,7 @@ $(document).ready(function(){
         });
 
         $("#lastname").blur(function(){
-        		$.post("php/checkout.php",{
+        		$.post("php/check.php",{
         								   fieldname:"lastname",
         								   value:$("#lastname").val()
         								  }, function(data, status){
@@ -36,7 +36,7 @@ $(document).ready(function(){
         });
 
         $("#address").blur(function(){
-        		$.post("php/checkout.php",{
+        		$.post("php/check.php",{
         								   fieldname:"address",
         								    value:$("#address").val()
         								  }, function(data, status){
@@ -46,7 +46,7 @@ $(document).ready(function(){
         });
 
         $("#company").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"company",
         								    value:$("#company").val()
         								  }, function(data, status){
@@ -56,7 +56,7 @@ $(document).ready(function(){
         });
 
         $("#city").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"city",
         								    value:$("#city").val()
         								  }, function(data, status){
@@ -66,7 +66,7 @@ $(document).ready(function(){
         });
 
         $("#postcode").blur(function(){
-        		$.post("php/checkout.php",{
+        		$.post("php/check.php",{
         								    fieldname:"postcode",
         								    value:$("#postcode").val()
         								  }, function(data, status){
@@ -84,7 +84,7 @@ $(document).ready(function(){
         });
 
          $("#country").blur(function(){
-        		$.post("php/checkout.php",{country:$("#country").val()}, function(data, status){
+        		$.post("php/check.php",{country:$("#country").val()}, function(data, status){
            						if($("#state").val() == ""){
          							$("#state").val("Required field");
          						} else if ($("#country").val() == "AU") {
@@ -104,7 +104,7 @@ $(document).ready(function(){
         });
 
             $("#country").click(function(){
-        		$.post("php/checkout.php",{country:$("#country").val()}, function(data, status){
+        		$.post("php/check.php",{country:$("#country").val()}, function(data, status){
            						if($("#state").val() == ""){
          							$("#state").val("Required field");
          						} else if ($("#country").val() == "AU") {
@@ -126,7 +126,7 @@ $(document).ready(function(){
 
 
         $("#state").blur(function(){
-        		$.post("php/checkout.php",{state:$("#state").val()}, function(data, status){
+        		$.post("php/check.php",{state:$("#state").val()}, function(data, status){
            						if($("#state").val() == ""){
          							$("#state").val("Required field");
          						} else if ($("#country").val() == "AU") {
@@ -146,7 +146,7 @@ $(document).ready(function(){
         });
 
          $("#state").click(function(){
-        		$.post("php/checkout.php",{state:$("#state").val()}, function(data, status){
+        		$.post("php/check.php",{state:$("#state").val()}, function(data, status){
            						if($("#state").val() == ""){
          							$("#state").val("Required field");
          						} else if ($("#country").val() == "AU") {
@@ -166,17 +166,17 @@ $(document).ready(function(){
         });
 
         $("#country").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"country",
         								    value:$("#country").val()
         								  }, function(data, status){
          						
-         						
+         					
          		});
         });
 
         $("#phone").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"phone",
         								    value:$("#phone").val()
         								  }, function(data, status){
@@ -194,7 +194,7 @@ $(document).ready(function(){
         });
 
         $("#email").blur(function(){
-        		$.post("php/checkout.php",{
+        		$.post("php/check.php",{
         								    fieldname:"email",
         								    value:$("#email").val()
         								  }, function(data, status){
@@ -213,9 +213,9 @@ $(document).ready(function(){
 
         
 
-       $("#email_test_pw").blur(function(){
-                $.post("php/checkout.php",{
-                                            fieldname:"email",
+      /* $("#email_test_pw").blur(function(){
+                $.post("php/check.php",{
+                                            fieldname:"email_test_pw",
                                             value:$("#email_test_pw").val()
                                           }, function(data, status){
                           if(data.trim() == 'error'){       
@@ -232,8 +232,8 @@ $(document).ready(function(){
         });
 
         $("#email_test").blur(function(){
-                $.post("php/checkout.php",{
-                                            fieldname:"email",
+                $.post("php/check.php",{
+                                            fieldname:"email_test",
                                             value:$("#email_test").val()
                                           }, function(data, status){
                           if(data.trim() == 'error'){       
@@ -247,20 +247,21 @@ $(document).ready(function(){
                             
                           } 
                 });
-        });
+        });*/
 
 
       	
-        $("#aButton").click(function(){
+       $("form :input").focus(function(){
 
         	var text = "";
         	error = false;
 
-        		$.post("php/checkout.php",{
+        		$.post("php/check.php",{
         								    fieldname:"email",
         								    value:$("#email").val()
         								  }, function(data, status){
-         				  if(data.trim() == 'error'){		
+         				  if(data.trim() == 'error'){	
+                            console.log("print-- " + data + " -  " + $("#email").val());	
          					$("#email").val(" ");
          					$("#email").val($("#email").val() + " this is invalid.").css("color","red");
          					error = true;	
@@ -274,7 +275,7 @@ $(document).ready(function(){
        					  }	
          		});
         	
-      			$.post("php/checkout.php",{
+      			$.post("php/check.php",{
         								    fieldname:"phone",
         								    value:$("#phone").val()
         								  }, function(data, status){
@@ -282,7 +283,7 @@ $(document).ready(function(){
          					$("#phone").val(" ");
          					$("#phone").val($("#phone").val() + " this is invalid.").css("color","red");
          						error = true;	
-        					text += "<p>Invalid Phone Number - format (XX)XXXX XXXX<\p>";
+        					    text += "<p>Invalid Phone Number - format (XX)XXXX XXXX<\p>";
         					
          					
        					  } else {
@@ -292,7 +293,7 @@ $(document).ready(function(){
          						
          		    });
       
-				$.post("php/checkout.php",{
+				$.post("php/check.php",{
         								    fieldname:"postcode",
         								    value:$("#postcode").val()
         								  }, function(data, status){
@@ -314,8 +315,22 @@ $(document).ready(function(){
        					
        					  
          		});
+
+                
+                    $.post("php/check.php",{
+                                            fieldname:"country",
+                                            value:$("#country").val()
+                                          }, function(data, status){
+                                
+                            
+                    });
+
+    
+
+        
+                
 				
-				$.post("php/checkout.php",{
+				$.post("php/check.php",{
         								    fieldname:"default",
         								    value:$("#aButton").val()
         								  }, function(data, status){
@@ -331,9 +346,10 @@ $(document).ready(function(){
         					if(error) {
          			
         							$("#errors").html(text);
+                                    $("#aButton").prop('disabled', true);
         					} else {
-         			
-         							window.location.href = "checkout2.php";	
+         			               $("#aButton").prop('disabled', false);
+         							//window.location.href = "checkout2.php";	
          					} 	
        					  
          		});		
@@ -343,7 +359,7 @@ $(document).ready(function(){
 
         $("#button_2").click(function(){
         		
-                $.post("php/checkout.php",{
+                $.post("php/check.php",{
                                             fieldname:"shipping",
                                             value:$("input[name=delivery]:checked").val()
                                           }, function(data, status){
@@ -366,7 +382,7 @@ $(document).ready(function(){
         });	
 
         $("#card_name").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"card_name",
         								    value:$("#card_name").val()
         								  }, function(data, status){
@@ -376,7 +392,7 @@ $(document).ready(function(){
         });
 
         $("#card_number").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"card_number",
         								    value:$("#card_number").val()
         								  }, function(data, status){
@@ -394,7 +410,7 @@ $(document).ready(function(){
         });
 
       $("#expiry_month").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"expiry_month",
         								    value:$("#expiry_month").val(),
         								    year:$("#expiry_year").val()
@@ -420,7 +436,7 @@ $(document).ready(function(){
         });
 
         $("#expiry_year").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"expiry_year",
         								    value:$("#expiry_year").val(),
         								    month:$("#expiry_month").val()
@@ -446,7 +462,7 @@ $(document).ready(function(){
         });  
 
         $("#cvv").blur(function(){
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"cvv",
         								    value:$("#cvv").val()
         								  }, function(data, status){
@@ -470,7 +486,7 @@ $(document).ready(function(){
         			var error_text = "";
         			error = false;
         	
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"card_number",
         								    value:$("#card_number").val()
         								  }, function(data, status){
@@ -489,7 +505,7 @@ $(document).ready(function(){
         	
 
         	
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"expiry_month",
         								    value:$("#expiry_month").val(),
         								    year:$("#expiry_year").val()
@@ -516,7 +532,7 @@ $(document).ready(function(){
 
 
         	
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"expiry_year",
         								    value:$("#expiry_year").val(),
         								    month:$("#expiry_month").val()
@@ -545,7 +561,7 @@ $(document).ready(function(){
         
 
         	
-        			$.post("php/checkout.php",{
+        			$.post("php/check.php",{
         								    fieldname:"cvv",
         								    value:$("#cvv").val()
         								  }, function(data, status){
