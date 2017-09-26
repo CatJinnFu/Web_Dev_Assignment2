@@ -18,7 +18,7 @@ require_once('php/functions-account.php');
 //retrive order from database.
 $_SESSION['Order_ID'] = $_GET["orderid"]; 
 $error = '';
-echo setUpAccount();
+setUpAccount();
 
 
 

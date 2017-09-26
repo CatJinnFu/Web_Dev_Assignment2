@@ -45,7 +45,7 @@ function changePassword($new){
 
   $query = "UPDATE Users SET password ='$new' WHERE USER_ID='$User_id'";   
 
-  echo "--update--" . $query;
+ 
 
   $stmt = oci_parse($db, $query); 
             
@@ -78,7 +78,7 @@ function setUpAccount(){
 	//login to database and get details
 	$query = "SELECT * FROM Users WHERE password = '$password' AND  email ='$email' " ;
       
-  echo "--AU--" . $query;    
+ 
         
        $stmt = oci_parse($db, $query); 
             
@@ -105,8 +105,7 @@ function setUpAccount(){
     	   //$_SESSION['postcode'] = '3000';
     	   
    	   }
-      echo "--COUNTRY--" . $_SESSION['country'];  
-      echo "--postcode--" . $_SESSION['postcode']; 
+
        $_SESSION['email'] = $_SESSION['emaildb'];
    	    
        //$_SESSION['email'] = $_SESSION['emaildb'];
@@ -139,7 +138,7 @@ function updateAccount(){
         //login to database and get details
         $query = "SELECT * FROM Users WHERE password = '$password' AND  email ='$email' " ;
 
-        echo "--select--" . $query;
+    
 
         $stmt = oci_parse($db, $query); 
             
@@ -156,7 +155,7 @@ function updateAccount(){
 
       $query = "UPDATE Users SET firstname ='$firstname', lastname = '$lastname', address = '$address', state = '$state', country = '$country', company='$company', email = '$emaildb', city ='$city', postcode='$postcode', phone = '$phone' WHERE USER_ID='$User_id'";   
 
-      echo "/n-update--" . $query;
+  
 
       $stmt = oci_parse($db, $query); 
             

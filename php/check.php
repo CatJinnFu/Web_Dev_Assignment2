@@ -107,9 +107,9 @@ function validateEmail($email){
 /*
 * Checks for phone numbers. In the following formats :
 *  (03) 9999 4501
-*  03 9999 4501
+*  0399994501
 *  (0428) 081 171
-*  0428 081 171
+*  0428081171
 */
 
 function validatePhone($phone){
@@ -120,6 +120,7 @@ function validatePhone($phone){
    $pattern2 = "/^[0-9]{2}[0-9]{4}[0-9]{4}$/";
    $pattern3 = "/^[0-9]{4}[0-9]{3}[0-9]{3}$/";
    $pattern4 = "/^\([0-9]{4}\)\s*[0-9]{3}\s*[0-9]{3}$/";
+   
   
    if (preg_match($pattern1,$phone)) {  return $phone;}
    else if (preg_match($pattern2,$phone)) { return $phone;}

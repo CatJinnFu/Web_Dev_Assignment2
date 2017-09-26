@@ -16,7 +16,7 @@ require_once('php/global-connect.php');
 require_once('php/functions.php');
 require_once('php/functions-login.php');
 require_once('php/functions-account.php');
-echo setupAccount();
+setupAccount();
 
 $_SESSION['total'] = $total;
 

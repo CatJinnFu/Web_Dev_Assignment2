@@ -10,7 +10,10 @@
 //==================================
 
 session_start();
-
+// turn all error reporting ON
+//error_reporting(E_ALL);
+// register error handler for all errors
+//set_error_handler('err_handler');
 
 switch ($action)  {
     case 'loadCart':
@@ -39,7 +42,7 @@ function writeOrder(){
 	$total = $_SESSION['total'];
 	
 
-	echo "variable---" . $email . "-" . $phone . "-" . $postcode;
+	
 
 
 	if(!userExists($firstname,$lastname,$email,$db)){
@@ -61,7 +64,7 @@ function writeOrder(){
              '$email')";
 
 
-             echo "--*--" . $query;
+    
 
 
             $stmt = oci_parse($db, $query); 
@@ -81,7 +84,6 @@ function writeOrder(){
 
     		$query = "UPDATE Users SET firstname ='$firstname', lastname = '$lastname', address = '$address', state = '$state', country = '$country', city ='$city', postcode='$postcode', phone = '$phone' WHERE USER_ID='$User_ID'";   
 
-      		echo "---q1--" . $query;
 
       		$stmt = oci_parse($db, $query); 
             
@@ -108,7 +110,7 @@ function writeOrder(){
             VALUES 
             ('$User_id','$Status','$Order_Date','$total')";
 
-            echo "---q2--" . $query;
+          
 
 				//'$Status',
              //'$Order_Date',
@@ -174,7 +176,7 @@ function writeOrder(){
              '$qty',
              '$price')";
 
-           echo "---" . $query;
+          
 
             $stmt = oci_parse($db, $query); 
 
@@ -461,5 +463,13 @@ function random_password( $length = 8 ) {
 }
 
 
+// define custom error handler:
+function err_handler($errcode,$errmsg,$file,$lineno) {
+	echo 'An error has occurred!<br />';
+  	echo "file: $file<br />";
+  	echo "line: $lineno<br />";
+  	echo "Problem: $errmsg<br />";
+	return true;
+}
 
 ?>

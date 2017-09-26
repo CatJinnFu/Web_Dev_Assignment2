@@ -89,7 +89,7 @@ function loginUser(){
 
 	   $query = "SELECT User_ID,firstname,lastname FROM Users WHERE password = '$password' AND  email ='$email' " ;
       
-       echo "--q--" . $query;
+
         
        $stmt = oci_parse($db, $query); 
             
